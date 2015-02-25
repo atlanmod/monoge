@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="ASCII"?>
+<mel:Model xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:mel="http://www.monoge.armines/Mel"
+    xsi:schemaLocation="http://www.monoge.armines/Mel Mel.ecore">
+  <extensions
+      xsi:type="mel:Refine"
+      classNew="Y"
+      classOriginal="C"/>
+  <extensions
+      xsi:type="mel:Generalize"
+      classNew="Z">
+    <class>A</class>
+    <class>B</class>
+  </extensions>
+  <extensions
+      xsi:type="mel:AddProperty"
+      class="A"
+      property="propertyA"/>
+  <extensions
+      xsi:type="mel:FilterProperty"
+      class="B"
+      property="propertyB"/>
+  <extensions
+      xsi:type="mel:FilterClass"
+      class="D"/>
+  <extensions
+      xsi:type="mel:AddConstraint"
+      class="A"
+      constraint="constraint1"
+      value="value1"/>
+  <extensions
+      xsi:type="mel:FilterConstraint"
+      class="C"
+      constraint="constraint2"/>
+  <extensions
+      xsi:type="mel:ModifyProperty"
+      class="C"
+      property="propertyC">
+    <value attribute="name"
+        value="propertyC2"/>
+  </extensions>
+</mel:Model>
