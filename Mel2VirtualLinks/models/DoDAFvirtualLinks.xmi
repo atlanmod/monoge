@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:virtualLinks="http://inria.fr/virtualLinks">
+  <virtualLinks:VirtualLinks>
+    <virtualLinks xsi:type="virtualLinks:Association" name="AddProperty" upperBound="1" associationTypeName="AddProperty" targetElements="/1" sourceAttribute="String" targetAttribute="FunctionType"/>
+    <virtualLinks xsi:type="virtualLinks:Association" name="FilterProperty" upperBound="1" associationTypeName="FilterProperty" sourceElement="/2" sourceAttribute="SASymHasFromArrow" targetAttribute=""/>
+    <virtualLinks xsi:type="virtualLinks:Association" name="FilterProperty" upperBound="1" associationTypeName="FilterProperty" sourceElement="/3" sourceAttribute="SASymHasToArrow" targetAttribute=""/>
+  </virtualLinks:VirtualLinks>
+  <virtualLinks:LinkedElement elementRef="//SystemFunctionSymbol" modelRef="http://Original_Metamodel/1.0" name="SystemFunctionSymbol"/>
+  <virtualLinks:LinkedElement elementRef="//DataFlowSymbol" modelRef="http://Original_Metamodel/1.0" name="DataFlowSymbol"/>
+  <virtualLinks:LinkedElement elementRef="//DataFlowSymbol" modelRef="http://Original_Metamodel/1.0" name="DataFlowSymbol"/>
+</xmi:XMI>
