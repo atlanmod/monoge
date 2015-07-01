@@ -7,6 +7,45 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.*;
 import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor;
 import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext;
+import java.util.Iterator;
+import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
+import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IWorkspace;
+import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IPath;
+import org.eclipse.emf.common.util.Diagnostic;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EAnnotation;
+import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EClassifier;
+import org.eclipse.emf.ecore.EDataType;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.EcoreFactory;
+import org.eclipse.emf.ecore.EcorePackage;
+import org.eclipse.emf.ecore.impl.EStringToStringMapEntryImpl;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.util.Diagnostician;
+import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.util.EcoreUtil.Copier;
+import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
+import org.eclipse.swt.graphics.RGB;
+import org.eclipse.swt.widgets.ColorDialog;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.xtext.*;
+import org.eclipse.xtext.nodemodel.INode;
+import org.eclipse.xtext.ui.editor.contentassist.ConfigurableCompletionProposal;
+import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor;
+import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext;
+import org.eclipse.xtext.ui.editor.contentassist.ReplacementTextApplier;
 
 /**
  * Represents a generated, default implementation of superclass {@link org.eclipse.xtext.common.ui.contentassist.TerminalsProposalProvider}.
@@ -17,139 +56,214 @@ import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext;
 public class AbstractExtensionProposalProvider extends org.eclipse.xtext.common.ui.contentassist.TerminalsProposalProvider {
 		
 	public void completeModel_ExtensionName(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		System.out.println("completeModel_ExtensionName");
 		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
 	}
 	public void completeModel_Metamodel(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		System.out.println("completeModel_Metamodel");
 		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
 	}
 	public void completeModel_Prefix(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		System.out.println("completeModel_Prefix");
 		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
 	}
 	public void completeModel_Extensions(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		System.out.println("completeModel_Extensions");
 		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
 	}
 	public void completeMetamodel_Name(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		System.out.println("completeMetamodel_Name");
 		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
 	}
 	public void completePrefix_Name(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		System.out.println("completePrefix_Name");
 		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
 	}
 	public void completeCreate_Class(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		System.out.println("completeCreate_Class");
 		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
 	}
 	public void completeRefine_ClassNew(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		System.out.println("completeRefine_ClassNew");
 		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
 	}
 	public void completeRefine_Prefix(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		System.out.println("completeRefine_Prefix");
 		lookupCrossReference(((CrossReference)assignment.getTerminal()), context, acceptor);
 	}
 	public void completeRefine_ClassOriginal(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
-		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
+		System.out.println("completeRefine_ClassOriginal");
+		//completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
+		//Load metamodel
+		ResourceSet virtualResourceSet = new ResourceSetImpl();
+		EPackage originalPackage = virtualResourceSet.getPackageRegistry().getEPackage("http://Original_Metamodel/1.0");
+		EList classes = originalPackage.getEClassifiers();
+		for (int i = 0; i < classes.size(); i++) {
+			EClass element = (EClass) classes.get(i);
+			acceptor.accept(createCompletionProposal(element.getName(), element.getName(), null, context));
+		}
 	}
 	public void completeGeneralize_ClassNew(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		System.out.println("completeGeneralize_ClassNew");
 		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
 	}
 	public void completeGeneralize_Prefix(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		System.out.println("completeGeneralize_Prefix");
 		lookupCrossReference(((CrossReference)assignment.getTerminal()), context, acceptor);
 	}
 	public void completeGeneralize_Class(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
-		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
+		System.out.println("completeGeneralize_Class");
+		//completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
+		ResourceSet virtualResourceSet = new ResourceSetImpl();
+		EPackage originalPackage = virtualResourceSet.getPackageRegistry().getEPackage("http://Original_Metamodel/1.0");
+		EList classes = originalPackage.getEClassifiers();
+		for (int i = 0; i < classes.size(); i++) {
+			EClass element = (EClass) classes.get(i);
+			acceptor.accept(createCompletionProposal(element.getName(), element.getName(), null, context));
+		}
 	}
 	public void completeModifyClass_Prefix(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		System.out.println("completeModifyClass_Prefix");
 		lookupCrossReference(((CrossReference)assignment.getTerminal()), context, acceptor);
 	}
 	public void completeModifyClass_Class(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
-		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
+		System.out.println("completeModifyClass_Class");
+		//completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
+		ResourceSet virtualResourceSet = new ResourceSetImpl();
+		EPackage originalPackage = virtualResourceSet.getPackageRegistry().getEPackage("http://Original_Metamodel/1.0");
+		EList classes = originalPackage.getEClassifiers();
+		for (int i = 0; i < classes.size(); i++) {
+			EClass element = (EClass) classes.get(i);
+			acceptor.accept(createCompletionProposal(element.getName(), element.getName(), null, context));
+		}
 	}
 	public void completeModifyClass_ModifyOperators(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		System.out.println("completeModifyClass_ModifyOperators");
 		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
 	}
 	public void completeAddProperty_Property(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		System.out.println("completeAddProperty_Property");
 		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
 	}
 	public void completeAddProperty_Type(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		System.out.println("completeAddProperty_Type");
 		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
 	}
 	public void completeModifyProperty_Property(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		System.out.println("completeModifyProperty_Property");
 		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
 	}
 	public void completeModifyProperty_Value(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		System.out.println("completeModifyProperty_Value");
 		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
 	}
 	public void completeValueAssignment_Attribute(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		System.out.println("completeValueAssignment_Attribute");
 		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
 	}
 	public void completeValueAssignment_Value(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		System.out.println("completeValueAssignment_Value");
 		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
 	}
 	public void completeFilterProperty_Property(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		System.out.println("completeFilterProperty_Property");
 		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
 	}
 	public void completeFilterClass_Prefix(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		System.out.println("completeFilterClass_Prefix");
 		lookupCrossReference(((CrossReference)assignment.getTerminal()), context, acceptor);
 	}
 	public void completeFilterClass_Class(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
-		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
+		System.out.println("completeFilterClass_Class");
+		//completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
+		ResourceSet virtualResourceSet = new ResourceSetImpl();
+		EPackage originalPackage = virtualResourceSet.getPackageRegistry().getEPackage("http://Original_Metamodel/1.0");
+		EList classes = originalPackage.getEClassifiers();
+		for (int i = 0; i < classes.size(); i++) {
+			EClass element = (EClass) classes.get(i);
+			acceptor.accept(createCompletionProposal(element.getName(), element.getName(), null, context));
+		}
 	}
 	public void completeAddConstraint_Constraint(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		System.out.println("completeAddConstraint_Constraint");
 		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
 	}
 	public void completeAddConstraint_Value(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		System.out.println("completeAddConstraint_Value");
 		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
 	}
 	public void completeFilterConstraint_Constraint(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		System.out.println("completeFilterConstraint_Constraint");
 		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
 	}
     
 	public void complete_Model(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		System.out.println("complete_Model");
 		// subclasses may override
 	}
 	public void complete_Extension(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		System.out.println("complete_Extension");
 		// subclasses may override
 	}
 	public void complete_Metamodel(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		System.out.println("complete_Metamodel");
 		// subclasses may override
 	}
 	public void complete_Prefix(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		System.out.println("complete_Prefix");
 		// subclasses may override
 	}
 	public void complete_Create(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		System.out.println("complete_Create");
 		// subclasses may override
 	}
 	public void complete_Refine(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		// subclasses may override
+		System.out.println("complete_Refine");
+		
 	}
 	public void complete_Generalize(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		System.out.println("complete_Generalize");
 		// subclasses may override
 	}
 	public void complete_ModifyClass(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		System.out.println("complete_ModifyClass");
 		// subclasses may override
 	}
 	public void complete_ModifyOperator(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		System.out.println("complete_ModifyOperator");
 		// subclasses may override
 	}
 	public void complete_AddProperty(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		System.out.println("complete_AddProperty");
 		// subclasses may override
 	}
 	public void complete_ModifyProperty(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		System.out.println("complete_ModifyProperty");
 		// subclasses may override
 	}
 	public void complete_ValueAssignment(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		System.out.println("complete_ValueAssignment");
 		// subclasses may override
 	}
 	public void complete_FilterProperty(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		System.out.println("complete_FilterProperty");
 		// subclasses may override
 	}
 	public void complete_FilterClass(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		System.out.println("complete_FilterClass");
 		// subclasses may override
 	}
 	public void complete_AddConstraint(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		System.out.println("complete_AddConstraint");
 		// subclasses may override
 	}
 	public void complete_FilterConstraint(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		System.out.println("complete_FilterConstraint");
 		// subclasses may override
 	}
 	public void complete_EString(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		System.out.println("complete_EString");
 		// subclasses may override
 	}
 }
