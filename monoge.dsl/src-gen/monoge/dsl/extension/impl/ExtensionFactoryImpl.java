@@ -80,6 +80,7 @@ public class ExtensionFactoryImpl extends EFactoryImpl implements ExtensionFacto
       case ExtensionPackage.FILTER_CLASS: return createFilterClass();
       case ExtensionPackage.ADD_CONSTRAINT: return createAddConstraint();
       case ExtensionPackage.FILTER_CONSTRAINT: return createFilterConstraint();
+      case ExtensionPackage.ADD_REFERENCE: return createAddReference();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -259,6 +260,17 @@ public class ExtensionFactoryImpl extends EFactoryImpl implements ExtensionFacto
   {
     FilterConstraintImpl filterConstraint = new FilterConstraintImpl();
     return filterConstraint;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public AddReference createAddReference()
+  {
+    AddReferenceImpl addReference = new AddReferenceImpl();
+    return addReference;
   }
 
   /**

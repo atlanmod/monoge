@@ -167,6 +167,15 @@ public interface ExtensionFactory extends EFactory
   FilterConstraint createFilterConstraint();
 
   /**
+   * Returns a new object of class '<em>Add Reference</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Add Reference</em>'.
+   * @generated
+   */
+  AddReference createAddReference();
+
+  /**
    * Returns the package supported by this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

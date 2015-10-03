@@ -1,0 +1,6 @@
+contributingMetamodels=Monoge_DoDAF2NAF/metamodels/DODAF.ecore
+correspondenceModel=Monoge_DoDAF2NAF/viewtypes/DODAFextension4NAF.xmi
+correspondenceModelBase=Monoge_DoDAF2NAF/viewtypes/DODAFextension4NAF.ecl
+filtersMetamodel=/Monoge_DoDAF2NAF/viewtypes/DODAFextension4NAF.ecore
+originalMetamodel=http://DODAF/1.0
+viewpointModel=platform:/resource/Monoge_DoDAF2NAF/resources/extendedMMviewpoint.xmi

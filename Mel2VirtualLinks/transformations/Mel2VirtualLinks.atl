@@ -29,6 +29,9 @@ rule Model2VirtualLinks {
 					--AddProperty
 					if(s.extensions.at(thisModule.indexExtension).modifyOperators.at(thisModule.indexOperator).oclIsTypeOf(Extension!AddProperty)){
 						t.virtualLinks <- t.virtualLinks->append(thisModule.AddProperty2Association(s.extensions.at(thisModule.indexExtension).modifyOperators.at(thisModule.indexOperator)));
+					--AddReference
+					}else if(s.extensions.at(thisModule.indexExtension).modifyOperators.at(thisModule.indexOperator).oclIsTypeOf(Extension!AddReference)){ 
+						t.virtualLinks <- t.virtualLinks->append(thisModule.AddReference2Association(s.extensions.at(thisModule.indexExtension).modifyOperators.at(thisModule.indexOperator)));
 					--ModifyProperty
 					}else if(s.extensions.at(thisModule.indexExtension).modifyOperators.at(thisModule.indexOperator).oclIsTypeOf(Extension!ModifyProperty)){ 
 						t.virtualLinks <- t.virtualLinks->append(thisModule.ModifyProperty2Association(s.extensions.at(thisModule.indexExtension).modifyOperators.at(thisModule.indexOperator)));
@@ -71,7 +74,48 @@ lazy rule AddProperty2Association{
 		name <- s.refImmediateComposite().class
 	)
 }
-
+lazy rule AddReference2Association{
+  from 
+  	s : Extension!AddReference
+  to
+  	t : VirtualLinks!Association (
+   		name <- 'AddReference',
+		--s.cardinality: '*..1' | '0..1' | '1..1' | '1..*' | '*..*' | '*'
+		upperBound <- 1, 
+		lowerBound <- 0,
+		associationTypeName <- 'AddReference',
+		--sourceElement <- le,
+		targetElements <- le,
+		targetAttribute <- s.property + ';' + s.relationType->first(),
+		sourceAttribute <- s.class
+    ),
+	le : VirtualLinks!LinkedElement(
+		elementRef <- '//' + s.refImmediateComposite().class,
+		modelRef <- 'http://Original_Metamodel/1.0',
+		name <- s.refImmediateComposite().class
+	)
+	do{
+		'AddReference2Association'.println();
+		'cardinality: '.concat(s.cardinality->first()).println();
+		'relationType: '.concat(s.relationType->first()).println();
+		if(s.cardinality->first().size() < 2){ --*
+			t.lowerBound <- 1;
+			t.upperBound <- -1;
+		}else{
+			'AddReference2Association'.println();
+			if(s.cardinality->first().split('..')->first()='*'){
+				t.lowerBound <- -1;
+			}else{
+				t.lowerBound <- s.cardinality->first().split('..')->first().toInteger();
+			}
+			if(s.cardinality->first().split('..')->last()='*'){
+				t.upperBound <- -1;
+			}else{
+				t.upperBound <- s.cardinality->first().split('..')->last().toInteger();
+			}
+		}
+	}
+}
 lazy rule ModifyProperty2Association{
   from 
   	s : Extension!ModifyProperty

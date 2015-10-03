@@ -1,0 +1,14 @@
+This project is an example of a metamodel extension using Monoge. Once that the extension
+has been defined with the DSL (monoge.dsl...) and the saved model of the definition
+transformed into virtuallinks model (with Mel2VirtualLinks.atl), the generatedviewpoint.xmi
+ has to be copied into this project, into the "resources" folder. 
+
+In the .eviewtype they have to be specified the url of the original MM and the path to
+the viewpoint in the resources folder, like this:
+
+contributingMetamodels=Monoge_Complete/metamodels/Original_Metamodel.ecore
+correspondenceModel=Monoge_Complete/viewtypes/extendedMMviewpoint.xmi
+correspondenceModelBase=Monoge_Complete/viewtypes/extendedMMviewpoint.ecl
+filtersMetamodel=/Monoge_Complete/viewtypes/extendedMMviewpoint.ecore
+originalMetamodel=http://Original_Metamodel/1.0
+viewpointModel=platform:/resource/Monoge_Complete/resources/extendedMMviewpoint.xmi

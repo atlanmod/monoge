@@ -65,5 +65,12 @@
     <genClasses ecoreClass="Extension.ecore#//FilterConstraint">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Extension.ecore#//FilterConstraint/constraint"/>
     </genClasses>
+    <genClasses ecoreClass="Extension.ecore#//AddReference">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Extension.ecore#//AddReference/property"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Extension.ecore#//AddReference/prefix"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Extension.ecore#//AddReference/class"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Extension.ecore#//AddReference/cardinality"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Extension.ecore#//AddReference/relationType"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

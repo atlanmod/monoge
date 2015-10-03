@@ -91,11 +91,12 @@ public class Viewtype extends ResourceImpl {
 	}
 
 	private String contributingMetamodels;
-
 	private String filtersMM;
-
 	private String correspondenceModel;
 	private String correspondenceModelBase;
+	
+	private String originalMetamodel;
+	private String pathsModel;
 
 	public String getCorrespondenceModelBase() {
 		System.out.println("core viewtype getcorrespondencemodelbase");
@@ -512,8 +513,8 @@ public class Viewtype extends ResourceImpl {
 	    // Obtain a new resource set
 	    ResourceSet resSet = new ResourceSetImpl();
 	    // Get the resource
-	    //TODO: HARDCODED
-	    URI uri = URI.createURI("platform:/resource/Monoge_DoDAF2NAF/resources/extendedMMviewpoint.xmi");
+	    //URI uri = URI.createURI("platform:/resource/Monoge_Complete/resources/extendedMMviewpoint.xmi");
+	    URI uri = URI.createURI(properties.getProperty("viewpointModel"));
 	    Resource resource = resSet.getResource(uri, true);
 	    List<Association> associations = new ArrayList<Association>();
 	    VirtualLinks virtualLinks = (VirtualLinks) resource.getContents().get(0);
@@ -526,8 +527,9 @@ public class Viewtype extends ResourceImpl {
 
 		}
 		System.out.println("associations size: " + associations.size());
-		//TODO: HARDCODED
-		EPackage originalPackage = virtualResourceSet.getPackageRegistry().getEPackage("http://Original_Metamodel/1.0");
+		EPackage originalPackage = virtualResourceSet.getPackageRegistry().getEPackage(properties.getProperty("originalMetamodel"));
+		//EPackage originalPackage = virtualResourceSet.getPackageRegistry().getEPackage("http://Original_Metamodel/1.0");
+		//EPackage originalPackage = virtualResourceSet.getPackageRegistry().getEPackage("http://DODAF/1.0");
 		//Register the MM
 		//EPackage.Registry.INSTANCE.put(originalPackage.getNsURI(), originalPackage);
 		
@@ -610,7 +612,6 @@ public class Viewtype extends ResourceImpl {
 						classB.getEStructuralFeatures().remove(theAtt);
 					}
 				}
-				
 			//5- FilterClass D
 			}else if(associationName.compareTo("FilterClass") == 0){
 				String filteredClass = association.getSourceElement().getName();
@@ -664,6 +665,29 @@ public class Viewtype extends ResourceImpl {
 						
 					}
 				}
+				//9- AddReference: refB to A
+			}else if(associationName.compareTo("AddReference") == 0){
+				System.out.println(association.getTargetAttribute());
+				String addedProperty = association.getTargetAttribute().split(";")[0]; //refB
+				String typeRelation = association.getTargetAttribute().split(";")[1]; //composition
+				String targetElement = association.getTargetElements().get(0).getName(); //A
+				String typeString = association.getSourceAttribute(); //B
+				System.out.println("Add reference: " + addedProperty + " of type: " + typeString + "and relation" + typeRelation + " to class: " + targetElement);
+				EClass classA = (EClass) extendedPackage.getEClassifier(targetElement); //A
+				EReference refB = EcoreFactory.eINSTANCE.createEReference();
+				refB.setName(addedProperty);
+				EClass classB = (EClass) extendedPackage.getEClassifier(typeString); //B
+				refB.setEType(classB);
+				if(typeRelation.compareTo("composition")==0){
+					refB.setContainment(true);
+				}else{
+					refB.setContainment(false);
+				}
+				//cardinality
+				refB.setLowerBound(association.getLowerBound());
+				refB.setUpperBound(association.getUpperBound());
+				
+				classA.getEStructuralFeatures().add(refB);
 			}else{
 				System.out.println("Not recognized Association");
 			}

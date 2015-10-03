@@ -4,6 +4,7 @@ import com.google.inject.Inject;
 import com.google.inject.Provider;
 import monoge.dsl.extension.AddConstraint;
 import monoge.dsl.extension.AddProperty;
+import monoge.dsl.extension.AddReference;
 import monoge.dsl.extension.Create;
 import monoge.dsl.extension.ExtensionPackage;
 import monoge.dsl.extension.FilterClass;
@@ -49,6 +50,13 @@ public class ExtensionSemanticSequencer extends AbstractDelegatingSemanticSequen
 				if(context == grammarAccess.getAddPropertyRule() ||
 				   context == grammarAccess.getModifyOperatorRule()) {
 					sequence_AddProperty(context, (AddProperty) semanticObject); 
+					return; 
+				}
+				else break;
+			case ExtensionPackage.ADD_REFERENCE:
+				if(context == grammarAccess.getAddReferenceRule() ||
+				   context == grammarAccess.getModifyOperatorRule()) {
+					sequence_AddReference(context, (AddReference) semanticObject); 
 					return; 
 				}
 				else break;
@@ -171,6 +179,15 @@ public class ExtensionSemanticSequencer extends AbstractDelegatingSemanticSequen
 		feeder.accept(grammarAccess.getAddPropertyAccess().getPropertyIDTerminalRuleCall_1_0(), semanticObject.getProperty());
 		feeder.accept(grammarAccess.getAddPropertyAccess().getTypeIDTerminalRuleCall_3_0(), semanticObject.getType());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (property=ID prefix+=[Prefix|ID] class+=ID cardinality+=Cardinality? relationType+=RelationType?)
+	 */
+	protected void sequence_AddReference(EObject context, AddReference semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

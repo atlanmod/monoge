@@ -21,35 +21,44 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalExtensionParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'define'", "'extending'", "':'", "','", "'{'", "'}'", "'add class'", "'specializing'", "'.'", "'supertyping'", "'modify class'", "'add property'", "'type'", "'modify property'", "'='", "'filter property'", "'filter class'", "'add constraint'", "'filter constraint'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'define'", "'extending'", "':'", "','", "'{'", "'}'", "'add class'", "'specializing'", "'.'", "'supertyping'", "'modify class'", "'add property'", "'type'", "'modify property'", "'='", "'filter property'", "'filter class'", "'add constraint'", "'filter constraint'", "'add reference'", "'*..1'", "'0..1'", "'1..1'", "'1..*'", "'*..*'", "'*'", "'composition'", "'association'"
     };
-    public static final int RULE_ID=4;
-    public static final int T__29=29;
-    public static final int T__28=28;
-    public static final int T__27=27;
-    public static final int T__26=26;
-    public static final int T__25=25;
-    public static final int T__24=24;
-    public static final int T__23=23;
-    public static final int T__22=22;
-    public static final int RULE_ANY_OTHER=10;
-    public static final int T__21=21;
-    public static final int T__20=20;
-    public static final int RULE_SL_COMMENT=8;
-    public static final int EOF=-1;
-    public static final int RULE_ML_COMMENT=7;
-    public static final int T__19=19;
     public static final int RULE_STRING=5;
-    public static final int T__16=16;
+    public static final int RULE_SL_COMMENT=8;
+    public static final int T__19=19;
     public static final int T__15=15;
-    public static final int T__18=18;
+    public static final int T__37=37;
+    public static final int T__16=16;
+    public static final int T__38=38;
     public static final int T__17=17;
-    public static final int T__12=12;
+    public static final int T__18=18;
     public static final int T__11=11;
-    public static final int T__14=14;
+    public static final int T__33=33;
+    public static final int T__12=12;
+    public static final int T__34=34;
     public static final int T__13=13;
-    public static final int RULE_INT=6;
+    public static final int T__35=35;
+    public static final int T__14=14;
+    public static final int T__36=36;
+    public static final int EOF=-1;
+    public static final int T__30=30;
+    public static final int T__31=31;
+    public static final int T__32=32;
+    public static final int RULE_ID=4;
     public static final int RULE_WS=9;
+    public static final int RULE_ANY_OTHER=10;
+    public static final int T__26=26;
+    public static final int T__27=27;
+    public static final int T__28=28;
+    public static final int RULE_INT=6;
+    public static final int T__29=29;
+    public static final int T__22=22;
+    public static final int RULE_ML_COMMENT=7;
+    public static final int T__23=23;
+    public static final int T__24=24;
+    public static final int T__25=25;
+    public static final int T__20=20;
+    public static final int T__21=21;
 
     // delegates
     // delegators
@@ -505,14 +514,14 @@ public class InternalExtensionParser extends AbstractInternalAntlrParser {
                         alt3=1;
                         }
                         break;
-                    case 18:
-                        {
-                        alt3=2;
-                        }
-                        break;
                     case 20:
                         {
                         alt3=3;
+                        }
+                        break;
+                    case 18:
+                        {
+                        alt3=2;
                         }
                         break;
                     default:
@@ -1477,7 +1486,7 @@ public class InternalExtensionParser extends AbstractInternalAntlrParser {
                 int alt5=2;
                 int LA5_0 = input.LA(1);
 
-                if ( (LA5_0==22||LA5_0==24||LA5_0==26||(LA5_0>=28 && LA5_0<=29)) ) {
+                if ( (LA5_0==22||LA5_0==24||LA5_0==26||(LA5_0>=28 && LA5_0<=30)) ) {
                     alt5=1;
                 }
 
@@ -1581,53 +1590,60 @@ public class InternalExtensionParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleModifyOperator"
-    // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:713:1: ruleModifyOperator returns [EObject current=null] : (this_AddProperty_0= ruleAddProperty | this_ModifyProperty_1= ruleModifyProperty | this_FilterProperty_2= ruleFilterProperty | this_AddConstraint_3= ruleAddConstraint | this_FilterConstraint_4= ruleFilterConstraint ) ;
+    // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:713:1: ruleModifyOperator returns [EObject current=null] : (this_AddProperty_0= ruleAddProperty | this_AddReference_1= ruleAddReference | this_ModifyProperty_2= ruleModifyProperty | this_FilterProperty_3= ruleFilterProperty | this_AddConstraint_4= ruleAddConstraint | this_FilterConstraint_5= ruleFilterConstraint ) ;
     public final EObject ruleModifyOperator() throws RecognitionException {
         EObject current = null;
 
         EObject this_AddProperty_0 = null;
 
-        EObject this_ModifyProperty_1 = null;
+        EObject this_AddReference_1 = null;
 
-        EObject this_FilterProperty_2 = null;
+        EObject this_ModifyProperty_2 = null;
 
-        EObject this_AddConstraint_3 = null;
+        EObject this_FilterProperty_3 = null;
 
-        EObject this_FilterConstraint_4 = null;
+        EObject this_AddConstraint_4 = null;
+
+        EObject this_FilterConstraint_5 = null;
 
 
          enterRule(); 
             
         try {
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:716:28: ( (this_AddProperty_0= ruleAddProperty | this_ModifyProperty_1= ruleModifyProperty | this_FilterProperty_2= ruleFilterProperty | this_AddConstraint_3= ruleAddConstraint | this_FilterConstraint_4= ruleFilterConstraint ) )
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:717:1: (this_AddProperty_0= ruleAddProperty | this_ModifyProperty_1= ruleModifyProperty | this_FilterProperty_2= ruleFilterProperty | this_AddConstraint_3= ruleAddConstraint | this_FilterConstraint_4= ruleFilterConstraint )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:716:28: ( (this_AddProperty_0= ruleAddProperty | this_AddReference_1= ruleAddReference | this_ModifyProperty_2= ruleModifyProperty | this_FilterProperty_3= ruleFilterProperty | this_AddConstraint_4= ruleAddConstraint | this_FilterConstraint_5= ruleFilterConstraint ) )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:717:1: (this_AddProperty_0= ruleAddProperty | this_AddReference_1= ruleAddReference | this_ModifyProperty_2= ruleModifyProperty | this_FilterProperty_3= ruleFilterProperty | this_AddConstraint_4= ruleAddConstraint | this_FilterConstraint_5= ruleFilterConstraint )
             {
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:717:1: (this_AddProperty_0= ruleAddProperty | this_ModifyProperty_1= ruleModifyProperty | this_FilterProperty_2= ruleFilterProperty | this_AddConstraint_3= ruleAddConstraint | this_FilterConstraint_4= ruleFilterConstraint )
-            int alt6=5;
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:717:1: (this_AddProperty_0= ruleAddProperty | this_AddReference_1= ruleAddReference | this_ModifyProperty_2= ruleModifyProperty | this_FilterProperty_3= ruleFilterProperty | this_AddConstraint_4= ruleAddConstraint | this_FilterConstraint_5= ruleFilterConstraint )
+            int alt6=6;
             switch ( input.LA(1) ) {
             case 22:
                 {
                 alt6=1;
                 }
                 break;
-            case 24:
+            case 30:
                 {
                 alt6=2;
                 }
                 break;
-            case 26:
+            case 24:
                 {
                 alt6=3;
                 }
                 break;
-            case 28:
+            case 26:
                 {
                 alt6=4;
                 }
                 break;
-            case 29:
+            case 28:
                 {
                 alt6=5;
+                }
+                break;
+            case 29:
+                {
+                alt6=6;
                 }
                 break;
             default:
@@ -1657,72 +1673,90 @@ public class InternalExtensionParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:728:5: this_ModifyProperty_1= ruleModifyProperty
+                    // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:728:5: this_AddReference_1= ruleAddReference
                     {
                      
-                            newCompositeNode(grammarAccess.getModifyOperatorAccess().getModifyPropertyParserRuleCall_1()); 
+                            newCompositeNode(grammarAccess.getModifyOperatorAccess().getAddReferenceParserRuleCall_1()); 
                         
-                    pushFollow(FOLLOW_ruleModifyProperty_in_ruleModifyOperator1526);
-                    this_ModifyProperty_1=ruleModifyProperty();
+                    pushFollow(FOLLOW_ruleAddReference_in_ruleModifyOperator1526);
+                    this_AddReference_1=ruleAddReference();
 
                     state._fsp--;
 
                      
-                            current = this_ModifyProperty_1; 
+                            current = this_AddReference_1; 
                             afterParserOrEnumRuleCall();
                         
 
                     }
                     break;
                 case 3 :
-                    // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:738:5: this_FilterProperty_2= ruleFilterProperty
+                    // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:738:5: this_ModifyProperty_2= ruleModifyProperty
                     {
                      
-                            newCompositeNode(grammarAccess.getModifyOperatorAccess().getFilterPropertyParserRuleCall_2()); 
+                            newCompositeNode(grammarAccess.getModifyOperatorAccess().getModifyPropertyParserRuleCall_2()); 
                         
-                    pushFollow(FOLLOW_ruleFilterProperty_in_ruleModifyOperator1553);
-                    this_FilterProperty_2=ruleFilterProperty();
+                    pushFollow(FOLLOW_ruleModifyProperty_in_ruleModifyOperator1553);
+                    this_ModifyProperty_2=ruleModifyProperty();
 
                     state._fsp--;
 
                      
-                            current = this_FilterProperty_2; 
+                            current = this_ModifyProperty_2; 
                             afterParserOrEnumRuleCall();
                         
 
                     }
                     break;
                 case 4 :
-                    // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:748:5: this_AddConstraint_3= ruleAddConstraint
+                    // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:748:5: this_FilterProperty_3= ruleFilterProperty
                     {
                      
-                            newCompositeNode(grammarAccess.getModifyOperatorAccess().getAddConstraintParserRuleCall_3()); 
+                            newCompositeNode(grammarAccess.getModifyOperatorAccess().getFilterPropertyParserRuleCall_3()); 
                         
-                    pushFollow(FOLLOW_ruleAddConstraint_in_ruleModifyOperator1580);
-                    this_AddConstraint_3=ruleAddConstraint();
+                    pushFollow(FOLLOW_ruleFilterProperty_in_ruleModifyOperator1580);
+                    this_FilterProperty_3=ruleFilterProperty();
 
                     state._fsp--;
 
                      
-                            current = this_AddConstraint_3; 
+                            current = this_FilterProperty_3; 
                             afterParserOrEnumRuleCall();
                         
 
                     }
                     break;
                 case 5 :
-                    // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:758:5: this_FilterConstraint_4= ruleFilterConstraint
+                    // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:758:5: this_AddConstraint_4= ruleAddConstraint
                     {
                      
-                            newCompositeNode(grammarAccess.getModifyOperatorAccess().getFilterConstraintParserRuleCall_4()); 
+                            newCompositeNode(grammarAccess.getModifyOperatorAccess().getAddConstraintParserRuleCall_4()); 
                         
-                    pushFollow(FOLLOW_ruleFilterConstraint_in_ruleModifyOperator1607);
-                    this_FilterConstraint_4=ruleFilterConstraint();
+                    pushFollow(FOLLOW_ruleAddConstraint_in_ruleModifyOperator1607);
+                    this_AddConstraint_4=ruleAddConstraint();
 
                     state._fsp--;
 
                      
-                            current = this_FilterConstraint_4; 
+                            current = this_AddConstraint_4; 
+                            afterParserOrEnumRuleCall();
+                        
+
+                    }
+                    break;
+                case 6 :
+                    // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:768:5: this_FilterConstraint_5= ruleFilterConstraint
+                    {
+                     
+                            newCompositeNode(grammarAccess.getModifyOperatorAccess().getFilterConstraintParserRuleCall_5()); 
+                        
+                    pushFollow(FOLLOW_ruleFilterConstraint_in_ruleModifyOperator1634);
+                    this_FilterConstraint_5=ruleFilterConstraint();
+
+                    state._fsp--;
+
+                     
+                            current = this_FilterConstraint_5; 
                             afterParserOrEnumRuleCall();
                         
 
@@ -1749,7 +1783,7 @@ public class InternalExtensionParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleAddProperty"
-    // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:774:1: entryRuleAddProperty returns [EObject current=null] : iv_ruleAddProperty= ruleAddProperty EOF ;
+    // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:784:1: entryRuleAddProperty returns [EObject current=null] : iv_ruleAddProperty= ruleAddProperty EOF ;
     public final EObject entryRuleAddProperty() throws RecognitionException {
         EObject current = null;
 
@@ -1757,17 +1791,17 @@ public class InternalExtensionParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:775:2: (iv_ruleAddProperty= ruleAddProperty EOF )
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:776:2: iv_ruleAddProperty= ruleAddProperty EOF
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:785:2: (iv_ruleAddProperty= ruleAddProperty EOF )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:786:2: iv_ruleAddProperty= ruleAddProperty EOF
             {
              newCompositeNode(grammarAccess.getAddPropertyRule()); 
-            pushFollow(FOLLOW_ruleAddProperty_in_entryRuleAddProperty1642);
+            pushFollow(FOLLOW_ruleAddProperty_in_entryRuleAddProperty1669);
             iv_ruleAddProperty=ruleAddProperty();
 
             state._fsp--;
 
              current =iv_ruleAddProperty; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleAddProperty1652); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleAddProperty1679); 
 
             }
 
@@ -1785,7 +1819,7 @@ public class InternalExtensionParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleAddProperty"
-    // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:783:1: ruleAddProperty returns [EObject current=null] : (otherlv_0= 'add property' ( (lv_property_1_0= RULE_ID ) ) otherlv_2= 'type' ( (lv_type_3_0= RULE_ID ) ) ) ;
+    // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:793:1: ruleAddProperty returns [EObject current=null] : (otherlv_0= 'add property' ( (lv_property_1_0= RULE_ID ) ) otherlv_2= 'type' ( (lv_type_3_0= RULE_ID ) ) ) ;
     public final EObject ruleAddProperty() throws RecognitionException {
         EObject current = null;
 
@@ -1797,23 +1831,23 @@ public class InternalExtensionParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:786:28: ( (otherlv_0= 'add property' ( (lv_property_1_0= RULE_ID ) ) otherlv_2= 'type' ( (lv_type_3_0= RULE_ID ) ) ) )
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:787:1: (otherlv_0= 'add property' ( (lv_property_1_0= RULE_ID ) ) otherlv_2= 'type' ( (lv_type_3_0= RULE_ID ) ) )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:796:28: ( (otherlv_0= 'add property' ( (lv_property_1_0= RULE_ID ) ) otherlv_2= 'type' ( (lv_type_3_0= RULE_ID ) ) ) )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:797:1: (otherlv_0= 'add property' ( (lv_property_1_0= RULE_ID ) ) otherlv_2= 'type' ( (lv_type_3_0= RULE_ID ) ) )
             {
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:787:1: (otherlv_0= 'add property' ( (lv_property_1_0= RULE_ID ) ) otherlv_2= 'type' ( (lv_type_3_0= RULE_ID ) ) )
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:787:3: otherlv_0= 'add property' ( (lv_property_1_0= RULE_ID ) ) otherlv_2= 'type' ( (lv_type_3_0= RULE_ID ) )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:797:1: (otherlv_0= 'add property' ( (lv_property_1_0= RULE_ID ) ) otherlv_2= 'type' ( (lv_type_3_0= RULE_ID ) ) )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:797:3: otherlv_0= 'add property' ( (lv_property_1_0= RULE_ID ) ) otherlv_2= 'type' ( (lv_type_3_0= RULE_ID ) )
             {
-            otherlv_0=(Token)match(input,22,FOLLOW_22_in_ruleAddProperty1689); 
+            otherlv_0=(Token)match(input,22,FOLLOW_22_in_ruleAddProperty1716); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getAddPropertyAccess().getAddPropertyKeyword_0());
                 
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:791:1: ( (lv_property_1_0= RULE_ID ) )
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:792:1: (lv_property_1_0= RULE_ID )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:801:1: ( (lv_property_1_0= RULE_ID ) )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:802:1: (lv_property_1_0= RULE_ID )
             {
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:792:1: (lv_property_1_0= RULE_ID )
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:793:3: lv_property_1_0= RULE_ID
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:802:1: (lv_property_1_0= RULE_ID )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:803:3: lv_property_1_0= RULE_ID
             {
-            lv_property_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleAddProperty1706); 
+            lv_property_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleAddProperty1733); 
 
             			newLeafNode(lv_property_1_0, grammarAccess.getAddPropertyAccess().getPropertyIDTerminalRuleCall_1_0()); 
             		
@@ -1833,17 +1867,17 @@ public class InternalExtensionParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,23,FOLLOW_23_in_ruleAddProperty1723); 
+            otherlv_2=(Token)match(input,23,FOLLOW_23_in_ruleAddProperty1750); 
 
                 	newLeafNode(otherlv_2, grammarAccess.getAddPropertyAccess().getTypeKeyword_2());
                 
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:813:1: ( (lv_type_3_0= RULE_ID ) )
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:814:1: (lv_type_3_0= RULE_ID )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:823:1: ( (lv_type_3_0= RULE_ID ) )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:824:1: (lv_type_3_0= RULE_ID )
             {
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:814:1: (lv_type_3_0= RULE_ID )
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:815:3: lv_type_3_0= RULE_ID
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:824:1: (lv_type_3_0= RULE_ID )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:825:3: lv_type_3_0= RULE_ID
             {
-            lv_type_3_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleAddProperty1740); 
+            lv_type_3_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleAddProperty1767); 
 
             			newLeafNode(lv_type_3_0, grammarAccess.getAddPropertyAccess().getTypeIDTerminalRuleCall_3_0()); 
             		
@@ -1884,7 +1918,7 @@ public class InternalExtensionParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleModifyProperty"
-    // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:839:1: entryRuleModifyProperty returns [EObject current=null] : iv_ruleModifyProperty= ruleModifyProperty EOF ;
+    // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:849:1: entryRuleModifyProperty returns [EObject current=null] : iv_ruleModifyProperty= ruleModifyProperty EOF ;
     public final EObject entryRuleModifyProperty() throws RecognitionException {
         EObject current = null;
 
@@ -1892,17 +1926,17 @@ public class InternalExtensionParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:840:2: (iv_ruleModifyProperty= ruleModifyProperty EOF )
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:841:2: iv_ruleModifyProperty= ruleModifyProperty EOF
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:850:2: (iv_ruleModifyProperty= ruleModifyProperty EOF )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:851:2: iv_ruleModifyProperty= ruleModifyProperty EOF
             {
              newCompositeNode(grammarAccess.getModifyPropertyRule()); 
-            pushFollow(FOLLOW_ruleModifyProperty_in_entryRuleModifyProperty1781);
+            pushFollow(FOLLOW_ruleModifyProperty_in_entryRuleModifyProperty1808);
             iv_ruleModifyProperty=ruleModifyProperty();
 
             state._fsp--;
 
              current =iv_ruleModifyProperty; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleModifyProperty1791); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleModifyProperty1818); 
 
             }
 
@@ -1920,7 +1954,7 @@ public class InternalExtensionParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleModifyProperty"
-    // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:848:1: ruleModifyProperty returns [EObject current=null] : (otherlv_0= 'modify property' ( (lv_property_1_0= RULE_ID ) ) ( (lv_value_2_0= ruleValueAssignment ) ) (otherlv_3= ',' ( (lv_value_4_0= ruleValueAssignment ) ) )* ) ;
+    // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:858:1: ruleModifyProperty returns [EObject current=null] : (otherlv_0= 'modify property' ( (lv_property_1_0= RULE_ID ) ) ( (lv_value_2_0= ruleValueAssignment ) ) (otherlv_3= ',' ( (lv_value_4_0= ruleValueAssignment ) ) )* ) ;
     public final EObject ruleModifyProperty() throws RecognitionException {
         EObject current = null;
 
@@ -1935,23 +1969,23 @@ public class InternalExtensionParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:851:28: ( (otherlv_0= 'modify property' ( (lv_property_1_0= RULE_ID ) ) ( (lv_value_2_0= ruleValueAssignment ) ) (otherlv_3= ',' ( (lv_value_4_0= ruleValueAssignment ) ) )* ) )
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:852:1: (otherlv_0= 'modify property' ( (lv_property_1_0= RULE_ID ) ) ( (lv_value_2_0= ruleValueAssignment ) ) (otherlv_3= ',' ( (lv_value_4_0= ruleValueAssignment ) ) )* )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:861:28: ( (otherlv_0= 'modify property' ( (lv_property_1_0= RULE_ID ) ) ( (lv_value_2_0= ruleValueAssignment ) ) (otherlv_3= ',' ( (lv_value_4_0= ruleValueAssignment ) ) )* ) )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:862:1: (otherlv_0= 'modify property' ( (lv_property_1_0= RULE_ID ) ) ( (lv_value_2_0= ruleValueAssignment ) ) (otherlv_3= ',' ( (lv_value_4_0= ruleValueAssignment ) ) )* )
             {
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:852:1: (otherlv_0= 'modify property' ( (lv_property_1_0= RULE_ID ) ) ( (lv_value_2_0= ruleValueAssignment ) ) (otherlv_3= ',' ( (lv_value_4_0= ruleValueAssignment ) ) )* )
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:852:3: otherlv_0= 'modify property' ( (lv_property_1_0= RULE_ID ) ) ( (lv_value_2_0= ruleValueAssignment ) ) (otherlv_3= ',' ( (lv_value_4_0= ruleValueAssignment ) ) )*
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:862:1: (otherlv_0= 'modify property' ( (lv_property_1_0= RULE_ID ) ) ( (lv_value_2_0= ruleValueAssignment ) ) (otherlv_3= ',' ( (lv_value_4_0= ruleValueAssignment ) ) )* )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:862:3: otherlv_0= 'modify property' ( (lv_property_1_0= RULE_ID ) ) ( (lv_value_2_0= ruleValueAssignment ) ) (otherlv_3= ',' ( (lv_value_4_0= ruleValueAssignment ) ) )*
             {
-            otherlv_0=(Token)match(input,24,FOLLOW_24_in_ruleModifyProperty1828); 
+            otherlv_0=(Token)match(input,24,FOLLOW_24_in_ruleModifyProperty1855); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getModifyPropertyAccess().getModifyPropertyKeyword_0());
                 
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:856:1: ( (lv_property_1_0= RULE_ID ) )
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:857:1: (lv_property_1_0= RULE_ID )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:866:1: ( (lv_property_1_0= RULE_ID ) )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:867:1: (lv_property_1_0= RULE_ID )
             {
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:857:1: (lv_property_1_0= RULE_ID )
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:858:3: lv_property_1_0= RULE_ID
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:867:1: (lv_property_1_0= RULE_ID )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:868:3: lv_property_1_0= RULE_ID
             {
-            lv_property_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleModifyProperty1845); 
+            lv_property_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleModifyProperty1872); 
 
             			newLeafNode(lv_property_1_0, grammarAccess.getModifyPropertyAccess().getPropertyIDTerminalRuleCall_1_0()); 
             		
@@ -1971,16 +2005,16 @@ public class InternalExtensionParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:874:2: ( (lv_value_2_0= ruleValueAssignment ) )
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:875:1: (lv_value_2_0= ruleValueAssignment )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:884:2: ( (lv_value_2_0= ruleValueAssignment ) )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:885:1: (lv_value_2_0= ruleValueAssignment )
             {
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:875:1: (lv_value_2_0= ruleValueAssignment )
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:876:3: lv_value_2_0= ruleValueAssignment
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:885:1: (lv_value_2_0= ruleValueAssignment )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:886:3: lv_value_2_0= ruleValueAssignment
             {
              
             	        newCompositeNode(grammarAccess.getModifyPropertyAccess().getValueValueAssignmentParserRuleCall_2_0()); 
             	    
-            pushFollow(FOLLOW_ruleValueAssignment_in_ruleModifyProperty1871);
+            pushFollow(FOLLOW_ruleValueAssignment_in_ruleModifyProperty1898);
             lv_value_2_0=ruleValueAssignment();
 
             state._fsp--;
@@ -2002,7 +2036,7 @@ public class InternalExtensionParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:892:2: (otherlv_3= ',' ( (lv_value_4_0= ruleValueAssignment ) ) )*
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:902:2: (otherlv_3= ',' ( (lv_value_4_0= ruleValueAssignment ) ) )*
             loop7:
             do {
                 int alt7=2;
@@ -2015,22 +2049,22 @@ public class InternalExtensionParser extends AbstractInternalAntlrParser {
 
                 switch (alt7) {
             	case 1 :
-            	    // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:892:4: otherlv_3= ',' ( (lv_value_4_0= ruleValueAssignment ) )
+            	    // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:902:4: otherlv_3= ',' ( (lv_value_4_0= ruleValueAssignment ) )
             	    {
-            	    otherlv_3=(Token)match(input,14,FOLLOW_14_in_ruleModifyProperty1884); 
+            	    otherlv_3=(Token)match(input,14,FOLLOW_14_in_ruleModifyProperty1911); 
 
             	        	newLeafNode(otherlv_3, grammarAccess.getModifyPropertyAccess().getCommaKeyword_3_0());
             	        
-            	    // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:896:1: ( (lv_value_4_0= ruleValueAssignment ) )
-            	    // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:897:1: (lv_value_4_0= ruleValueAssignment )
+            	    // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:906:1: ( (lv_value_4_0= ruleValueAssignment ) )
+            	    // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:907:1: (lv_value_4_0= ruleValueAssignment )
             	    {
-            	    // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:897:1: (lv_value_4_0= ruleValueAssignment )
-            	    // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:898:3: lv_value_4_0= ruleValueAssignment
+            	    // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:907:1: (lv_value_4_0= ruleValueAssignment )
+            	    // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:908:3: lv_value_4_0= ruleValueAssignment
             	    {
             	     
             	    	        newCompositeNode(grammarAccess.getModifyPropertyAccess().getValueValueAssignmentParserRuleCall_3_1_0()); 
             	    	    
-            	    pushFollow(FOLLOW_ruleValueAssignment_in_ruleModifyProperty1905);
+            	    pushFollow(FOLLOW_ruleValueAssignment_in_ruleModifyProperty1932);
             	    lv_value_4_0=ruleValueAssignment();
 
             	    state._fsp--;
@@ -2082,7 +2116,7 @@ public class InternalExtensionParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleValueAssignment"
-    // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:922:1: entryRuleValueAssignment returns [EObject current=null] : iv_ruleValueAssignment= ruleValueAssignment EOF ;
+    // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:932:1: entryRuleValueAssignment returns [EObject current=null] : iv_ruleValueAssignment= ruleValueAssignment EOF ;
     public final EObject entryRuleValueAssignment() throws RecognitionException {
         EObject current = null;
 
@@ -2090,17 +2124,17 @@ public class InternalExtensionParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:923:2: (iv_ruleValueAssignment= ruleValueAssignment EOF )
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:924:2: iv_ruleValueAssignment= ruleValueAssignment EOF
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:933:2: (iv_ruleValueAssignment= ruleValueAssignment EOF )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:934:2: iv_ruleValueAssignment= ruleValueAssignment EOF
             {
              newCompositeNode(grammarAccess.getValueAssignmentRule()); 
-            pushFollow(FOLLOW_ruleValueAssignment_in_entryRuleValueAssignment1943);
+            pushFollow(FOLLOW_ruleValueAssignment_in_entryRuleValueAssignment1970);
             iv_ruleValueAssignment=ruleValueAssignment();
 
             state._fsp--;
 
              current =iv_ruleValueAssignment; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleValueAssignment1953); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleValueAssignment1980); 
 
             }
 
@@ -2118,7 +2152,7 @@ public class InternalExtensionParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleValueAssignment"
-    // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:931:1: ruleValueAssignment returns [EObject current=null] : ( ( (lv_attribute_0_0= RULE_ID ) ) otherlv_1= '=' ( (lv_value_2_0= ruleEString ) ) ) ;
+    // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:941:1: ruleValueAssignment returns [EObject current=null] : ( ( (lv_attribute_0_0= RULE_ID ) ) otherlv_1= '=' ( (lv_value_2_0= ruleEString ) ) ) ;
     public final EObject ruleValueAssignment() throws RecognitionException {
         EObject current = null;
 
@@ -2130,19 +2164,19 @@ public class InternalExtensionParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:934:28: ( ( ( (lv_attribute_0_0= RULE_ID ) ) otherlv_1= '=' ( (lv_value_2_0= ruleEString ) ) ) )
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:935:1: ( ( (lv_attribute_0_0= RULE_ID ) ) otherlv_1= '=' ( (lv_value_2_0= ruleEString ) ) )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:944:28: ( ( ( (lv_attribute_0_0= RULE_ID ) ) otherlv_1= '=' ( (lv_value_2_0= ruleEString ) ) ) )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:945:1: ( ( (lv_attribute_0_0= RULE_ID ) ) otherlv_1= '=' ( (lv_value_2_0= ruleEString ) ) )
             {
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:935:1: ( ( (lv_attribute_0_0= RULE_ID ) ) otherlv_1= '=' ( (lv_value_2_0= ruleEString ) ) )
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:935:2: ( (lv_attribute_0_0= RULE_ID ) ) otherlv_1= '=' ( (lv_value_2_0= ruleEString ) )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:945:1: ( ( (lv_attribute_0_0= RULE_ID ) ) otherlv_1= '=' ( (lv_value_2_0= ruleEString ) ) )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:945:2: ( (lv_attribute_0_0= RULE_ID ) ) otherlv_1= '=' ( (lv_value_2_0= ruleEString ) )
             {
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:935:2: ( (lv_attribute_0_0= RULE_ID ) )
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:936:1: (lv_attribute_0_0= RULE_ID )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:945:2: ( (lv_attribute_0_0= RULE_ID ) )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:946:1: (lv_attribute_0_0= RULE_ID )
             {
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:936:1: (lv_attribute_0_0= RULE_ID )
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:937:3: lv_attribute_0_0= RULE_ID
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:946:1: (lv_attribute_0_0= RULE_ID )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:947:3: lv_attribute_0_0= RULE_ID
             {
-            lv_attribute_0_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleValueAssignment1995); 
+            lv_attribute_0_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleValueAssignment2022); 
 
             			newLeafNode(lv_attribute_0_0, grammarAccess.getValueAssignmentAccess().getAttributeIDTerminalRuleCall_0_0()); 
             		
@@ -2162,20 +2196,20 @@ public class InternalExtensionParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,25,FOLLOW_25_in_ruleValueAssignment2012); 
+            otherlv_1=(Token)match(input,25,FOLLOW_25_in_ruleValueAssignment2039); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getValueAssignmentAccess().getEqualsSignKeyword_1());
                 
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:957:1: ( (lv_value_2_0= ruleEString ) )
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:958:1: (lv_value_2_0= ruleEString )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:967:1: ( (lv_value_2_0= ruleEString ) )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:968:1: (lv_value_2_0= ruleEString )
             {
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:958:1: (lv_value_2_0= ruleEString )
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:959:3: lv_value_2_0= ruleEString
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:968:1: (lv_value_2_0= ruleEString )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:969:3: lv_value_2_0= ruleEString
             {
              
             	        newCompositeNode(grammarAccess.getValueAssignmentAccess().getValueEStringParserRuleCall_2_0()); 
             	    
-            pushFollow(FOLLOW_ruleEString_in_ruleValueAssignment2033);
+            pushFollow(FOLLOW_ruleEString_in_ruleValueAssignment2060);
             lv_value_2_0=ruleEString();
 
             state._fsp--;
@@ -2218,7 +2252,7 @@ public class InternalExtensionParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleFilterProperty"
-    // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:983:1: entryRuleFilterProperty returns [EObject current=null] : iv_ruleFilterProperty= ruleFilterProperty EOF ;
+    // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:993:1: entryRuleFilterProperty returns [EObject current=null] : iv_ruleFilterProperty= ruleFilterProperty EOF ;
     public final EObject entryRuleFilterProperty() throws RecognitionException {
         EObject current = null;
 
@@ -2226,17 +2260,17 @@ public class InternalExtensionParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:984:2: (iv_ruleFilterProperty= ruleFilterProperty EOF )
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:985:2: iv_ruleFilterProperty= ruleFilterProperty EOF
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:994:2: (iv_ruleFilterProperty= ruleFilterProperty EOF )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:995:2: iv_ruleFilterProperty= ruleFilterProperty EOF
             {
              newCompositeNode(grammarAccess.getFilterPropertyRule()); 
-            pushFollow(FOLLOW_ruleFilterProperty_in_entryRuleFilterProperty2069);
+            pushFollow(FOLLOW_ruleFilterProperty_in_entryRuleFilterProperty2096);
             iv_ruleFilterProperty=ruleFilterProperty();
 
             state._fsp--;
 
              current =iv_ruleFilterProperty; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleFilterProperty2079); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleFilterProperty2106); 
 
             }
 
@@ -2254,7 +2288,7 @@ public class InternalExtensionParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleFilterProperty"
-    // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:992:1: ruleFilterProperty returns [EObject current=null] : (otherlv_0= 'filter property' ( (lv_property_1_0= RULE_ID ) ) ) ;
+    // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1002:1: ruleFilterProperty returns [EObject current=null] : (otherlv_0= 'filter property' ( (lv_property_1_0= RULE_ID ) ) ) ;
     public final EObject ruleFilterProperty() throws RecognitionException {
         EObject current = null;
 
@@ -2264,23 +2298,23 @@ public class InternalExtensionParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:995:28: ( (otherlv_0= 'filter property' ( (lv_property_1_0= RULE_ID ) ) ) )
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:996:1: (otherlv_0= 'filter property' ( (lv_property_1_0= RULE_ID ) ) )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1005:28: ( (otherlv_0= 'filter property' ( (lv_property_1_0= RULE_ID ) ) ) )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1006:1: (otherlv_0= 'filter property' ( (lv_property_1_0= RULE_ID ) ) )
             {
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:996:1: (otherlv_0= 'filter property' ( (lv_property_1_0= RULE_ID ) ) )
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:996:3: otherlv_0= 'filter property' ( (lv_property_1_0= RULE_ID ) )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1006:1: (otherlv_0= 'filter property' ( (lv_property_1_0= RULE_ID ) ) )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1006:3: otherlv_0= 'filter property' ( (lv_property_1_0= RULE_ID ) )
             {
-            otherlv_0=(Token)match(input,26,FOLLOW_26_in_ruleFilterProperty2116); 
+            otherlv_0=(Token)match(input,26,FOLLOW_26_in_ruleFilterProperty2143); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getFilterPropertyAccess().getFilterPropertyKeyword_0());
                 
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1000:1: ( (lv_property_1_0= RULE_ID ) )
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1001:1: (lv_property_1_0= RULE_ID )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1010:1: ( (lv_property_1_0= RULE_ID ) )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1011:1: (lv_property_1_0= RULE_ID )
             {
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1001:1: (lv_property_1_0= RULE_ID )
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1002:3: lv_property_1_0= RULE_ID
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1011:1: (lv_property_1_0= RULE_ID )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1012:3: lv_property_1_0= RULE_ID
             {
-            lv_property_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleFilterProperty2133); 
+            lv_property_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleFilterProperty2160); 
 
             			newLeafNode(lv_property_1_0, grammarAccess.getFilterPropertyAccess().getPropertyIDTerminalRuleCall_1_0()); 
             		
@@ -2321,7 +2355,7 @@ public class InternalExtensionParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleFilterClass"
-    // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1026:1: entryRuleFilterClass returns [EObject current=null] : iv_ruleFilterClass= ruleFilterClass EOF ;
+    // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1036:1: entryRuleFilterClass returns [EObject current=null] : iv_ruleFilterClass= ruleFilterClass EOF ;
     public final EObject entryRuleFilterClass() throws RecognitionException {
         EObject current = null;
 
@@ -2329,17 +2363,17 @@ public class InternalExtensionParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1027:2: (iv_ruleFilterClass= ruleFilterClass EOF )
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1028:2: iv_ruleFilterClass= ruleFilterClass EOF
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1037:2: (iv_ruleFilterClass= ruleFilterClass EOF )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1038:2: iv_ruleFilterClass= ruleFilterClass EOF
             {
              newCompositeNode(grammarAccess.getFilterClassRule()); 
-            pushFollow(FOLLOW_ruleFilterClass_in_entryRuleFilterClass2174);
+            pushFollow(FOLLOW_ruleFilterClass_in_entryRuleFilterClass2201);
             iv_ruleFilterClass=ruleFilterClass();
 
             state._fsp--;
 
              current =iv_ruleFilterClass; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleFilterClass2184); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleFilterClass2211); 
 
             }
 
@@ -2357,7 +2391,7 @@ public class InternalExtensionParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleFilterClass"
-    // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1035:1: ruleFilterClass returns [EObject current=null] : (otherlv_0= 'filter class' ( (otherlv_1= RULE_ID ) ) otherlv_2= '.' ( (lv_class_3_0= RULE_ID ) ) ) ;
+    // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1045:1: ruleFilterClass returns [EObject current=null] : (otherlv_0= 'filter class' ( (otherlv_1= RULE_ID ) ) otherlv_2= '.' ( (lv_class_3_0= RULE_ID ) ) ) ;
     public final EObject ruleFilterClass() throws RecognitionException {
         EObject current = null;
 
@@ -2369,28 +2403,28 @@ public class InternalExtensionParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1038:28: ( (otherlv_0= 'filter class' ( (otherlv_1= RULE_ID ) ) otherlv_2= '.' ( (lv_class_3_0= RULE_ID ) ) ) )
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1039:1: (otherlv_0= 'filter class' ( (otherlv_1= RULE_ID ) ) otherlv_2= '.' ( (lv_class_3_0= RULE_ID ) ) )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1048:28: ( (otherlv_0= 'filter class' ( (otherlv_1= RULE_ID ) ) otherlv_2= '.' ( (lv_class_3_0= RULE_ID ) ) ) )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1049:1: (otherlv_0= 'filter class' ( (otherlv_1= RULE_ID ) ) otherlv_2= '.' ( (lv_class_3_0= RULE_ID ) ) )
             {
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1039:1: (otherlv_0= 'filter class' ( (otherlv_1= RULE_ID ) ) otherlv_2= '.' ( (lv_class_3_0= RULE_ID ) ) )
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1039:3: otherlv_0= 'filter class' ( (otherlv_1= RULE_ID ) ) otherlv_2= '.' ( (lv_class_3_0= RULE_ID ) )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1049:1: (otherlv_0= 'filter class' ( (otherlv_1= RULE_ID ) ) otherlv_2= '.' ( (lv_class_3_0= RULE_ID ) ) )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1049:3: otherlv_0= 'filter class' ( (otherlv_1= RULE_ID ) ) otherlv_2= '.' ( (lv_class_3_0= RULE_ID ) )
             {
-            otherlv_0=(Token)match(input,27,FOLLOW_27_in_ruleFilterClass2221); 
+            otherlv_0=(Token)match(input,27,FOLLOW_27_in_ruleFilterClass2248); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getFilterClassAccess().getFilterClassKeyword_0());
                 
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1043:1: ( (otherlv_1= RULE_ID ) )
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1044:1: (otherlv_1= RULE_ID )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1053:1: ( (otherlv_1= RULE_ID ) )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1054:1: (otherlv_1= RULE_ID )
             {
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1044:1: (otherlv_1= RULE_ID )
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1045:3: otherlv_1= RULE_ID
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1054:1: (otherlv_1= RULE_ID )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1055:3: otherlv_1= RULE_ID
             {
 
             			if (current==null) {
             	            current = createModelElement(grammarAccess.getFilterClassRule());
             	        }
                     
-            otherlv_1=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleFilterClass2241); 
+            otherlv_1=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleFilterClass2268); 
 
             		newLeafNode(otherlv_1, grammarAccess.getFilterClassAccess().getPrefixPrefixCrossReference_1_0()); 
             	
@@ -2400,17 +2434,17 @@ public class InternalExtensionParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,19,FOLLOW_19_in_ruleFilterClass2253); 
+            otherlv_2=(Token)match(input,19,FOLLOW_19_in_ruleFilterClass2280); 
 
                 	newLeafNode(otherlv_2, grammarAccess.getFilterClassAccess().getFullStopKeyword_2());
                 
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1060:1: ( (lv_class_3_0= RULE_ID ) )
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1061:1: (lv_class_3_0= RULE_ID )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1070:1: ( (lv_class_3_0= RULE_ID ) )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1071:1: (lv_class_3_0= RULE_ID )
             {
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1061:1: (lv_class_3_0= RULE_ID )
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1062:3: lv_class_3_0= RULE_ID
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1071:1: (lv_class_3_0= RULE_ID )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1072:3: lv_class_3_0= RULE_ID
             {
-            lv_class_3_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleFilterClass2270); 
+            lv_class_3_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleFilterClass2297); 
 
             			newLeafNode(lv_class_3_0, grammarAccess.getFilterClassAccess().getClassIDTerminalRuleCall_3_0()); 
             		
@@ -2451,7 +2485,7 @@ public class InternalExtensionParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleAddConstraint"
-    // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1086:1: entryRuleAddConstraint returns [EObject current=null] : iv_ruleAddConstraint= ruleAddConstraint EOF ;
+    // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1096:1: entryRuleAddConstraint returns [EObject current=null] : iv_ruleAddConstraint= ruleAddConstraint EOF ;
     public final EObject entryRuleAddConstraint() throws RecognitionException {
         EObject current = null;
 
@@ -2459,17 +2493,17 @@ public class InternalExtensionParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1087:2: (iv_ruleAddConstraint= ruleAddConstraint EOF )
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1088:2: iv_ruleAddConstraint= ruleAddConstraint EOF
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1097:2: (iv_ruleAddConstraint= ruleAddConstraint EOF )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1098:2: iv_ruleAddConstraint= ruleAddConstraint EOF
             {
              newCompositeNode(grammarAccess.getAddConstraintRule()); 
-            pushFollow(FOLLOW_ruleAddConstraint_in_entryRuleAddConstraint2311);
+            pushFollow(FOLLOW_ruleAddConstraint_in_entryRuleAddConstraint2338);
             iv_ruleAddConstraint=ruleAddConstraint();
 
             state._fsp--;
 
              current =iv_ruleAddConstraint; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleAddConstraint2321); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleAddConstraint2348); 
 
             }
 
@@ -2487,7 +2521,7 @@ public class InternalExtensionParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleAddConstraint"
-    // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1095:1: ruleAddConstraint returns [EObject current=null] : (otherlv_0= 'add constraint' ( (lv_constraint_1_0= RULE_ID ) ) ( (lv_value_2_0= ruleEString ) ) ) ;
+    // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1105:1: ruleAddConstraint returns [EObject current=null] : (otherlv_0= 'add constraint' ( (lv_constraint_1_0= RULE_ID ) ) ( (lv_value_2_0= ruleEString ) ) ) ;
     public final EObject ruleAddConstraint() throws RecognitionException {
         EObject current = null;
 
@@ -2499,23 +2533,23 @@ public class InternalExtensionParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1098:28: ( (otherlv_0= 'add constraint' ( (lv_constraint_1_0= RULE_ID ) ) ( (lv_value_2_0= ruleEString ) ) ) )
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1099:1: (otherlv_0= 'add constraint' ( (lv_constraint_1_0= RULE_ID ) ) ( (lv_value_2_0= ruleEString ) ) )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1108:28: ( (otherlv_0= 'add constraint' ( (lv_constraint_1_0= RULE_ID ) ) ( (lv_value_2_0= ruleEString ) ) ) )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1109:1: (otherlv_0= 'add constraint' ( (lv_constraint_1_0= RULE_ID ) ) ( (lv_value_2_0= ruleEString ) ) )
             {
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1099:1: (otherlv_0= 'add constraint' ( (lv_constraint_1_0= RULE_ID ) ) ( (lv_value_2_0= ruleEString ) ) )
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1099:3: otherlv_0= 'add constraint' ( (lv_constraint_1_0= RULE_ID ) ) ( (lv_value_2_0= ruleEString ) )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1109:1: (otherlv_0= 'add constraint' ( (lv_constraint_1_0= RULE_ID ) ) ( (lv_value_2_0= ruleEString ) ) )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1109:3: otherlv_0= 'add constraint' ( (lv_constraint_1_0= RULE_ID ) ) ( (lv_value_2_0= ruleEString ) )
             {
-            otherlv_0=(Token)match(input,28,FOLLOW_28_in_ruleAddConstraint2358); 
+            otherlv_0=(Token)match(input,28,FOLLOW_28_in_ruleAddConstraint2385); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getAddConstraintAccess().getAddConstraintKeyword_0());
                 
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1103:1: ( (lv_constraint_1_0= RULE_ID ) )
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1104:1: (lv_constraint_1_0= RULE_ID )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1113:1: ( (lv_constraint_1_0= RULE_ID ) )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1114:1: (lv_constraint_1_0= RULE_ID )
             {
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1104:1: (lv_constraint_1_0= RULE_ID )
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1105:3: lv_constraint_1_0= RULE_ID
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1114:1: (lv_constraint_1_0= RULE_ID )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1115:3: lv_constraint_1_0= RULE_ID
             {
-            lv_constraint_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleAddConstraint2375); 
+            lv_constraint_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleAddConstraint2402); 
 
             			newLeafNode(lv_constraint_1_0, grammarAccess.getAddConstraintAccess().getConstraintIDTerminalRuleCall_1_0()); 
             		
@@ -2535,16 +2569,16 @@ public class InternalExtensionParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1121:2: ( (lv_value_2_0= ruleEString ) )
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1122:1: (lv_value_2_0= ruleEString )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1131:2: ( (lv_value_2_0= ruleEString ) )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1132:1: (lv_value_2_0= ruleEString )
             {
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1122:1: (lv_value_2_0= ruleEString )
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1123:3: lv_value_2_0= ruleEString
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1132:1: (lv_value_2_0= ruleEString )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1133:3: lv_value_2_0= ruleEString
             {
              
             	        newCompositeNode(grammarAccess.getAddConstraintAccess().getValueEStringParserRuleCall_2_0()); 
             	    
-            pushFollow(FOLLOW_ruleEString_in_ruleAddConstraint2401);
+            pushFollow(FOLLOW_ruleEString_in_ruleAddConstraint2428);
             lv_value_2_0=ruleEString();
 
             state._fsp--;
@@ -2587,7 +2621,7 @@ public class InternalExtensionParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleFilterConstraint"
-    // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1147:1: entryRuleFilterConstraint returns [EObject current=null] : iv_ruleFilterConstraint= ruleFilterConstraint EOF ;
+    // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1157:1: entryRuleFilterConstraint returns [EObject current=null] : iv_ruleFilterConstraint= ruleFilterConstraint EOF ;
     public final EObject entryRuleFilterConstraint() throws RecognitionException {
         EObject current = null;
 
@@ -2595,17 +2629,17 @@ public class InternalExtensionParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1148:2: (iv_ruleFilterConstraint= ruleFilterConstraint EOF )
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1149:2: iv_ruleFilterConstraint= ruleFilterConstraint EOF
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1158:2: (iv_ruleFilterConstraint= ruleFilterConstraint EOF )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1159:2: iv_ruleFilterConstraint= ruleFilterConstraint EOF
             {
              newCompositeNode(grammarAccess.getFilterConstraintRule()); 
-            pushFollow(FOLLOW_ruleFilterConstraint_in_entryRuleFilterConstraint2437);
+            pushFollow(FOLLOW_ruleFilterConstraint_in_entryRuleFilterConstraint2464);
             iv_ruleFilterConstraint=ruleFilterConstraint();
 
             state._fsp--;
 
              current =iv_ruleFilterConstraint; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleFilterConstraint2447); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleFilterConstraint2474); 
 
             }
 
@@ -2623,7 +2657,7 @@ public class InternalExtensionParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleFilterConstraint"
-    // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1156:1: ruleFilterConstraint returns [EObject current=null] : (otherlv_0= 'filter constraint' ( (lv_constraint_1_0= ruleEString ) ) ) ;
+    // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1166:1: ruleFilterConstraint returns [EObject current=null] : (otherlv_0= 'filter constraint' ( (lv_constraint_1_0= ruleEString ) ) ) ;
     public final EObject ruleFilterConstraint() throws RecognitionException {
         EObject current = null;
 
@@ -2634,26 +2668,26 @@ public class InternalExtensionParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1159:28: ( (otherlv_0= 'filter constraint' ( (lv_constraint_1_0= ruleEString ) ) ) )
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1160:1: (otherlv_0= 'filter constraint' ( (lv_constraint_1_0= ruleEString ) ) )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1169:28: ( (otherlv_0= 'filter constraint' ( (lv_constraint_1_0= ruleEString ) ) ) )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1170:1: (otherlv_0= 'filter constraint' ( (lv_constraint_1_0= ruleEString ) ) )
             {
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1160:1: (otherlv_0= 'filter constraint' ( (lv_constraint_1_0= ruleEString ) ) )
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1160:3: otherlv_0= 'filter constraint' ( (lv_constraint_1_0= ruleEString ) )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1170:1: (otherlv_0= 'filter constraint' ( (lv_constraint_1_0= ruleEString ) ) )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1170:3: otherlv_0= 'filter constraint' ( (lv_constraint_1_0= ruleEString ) )
             {
-            otherlv_0=(Token)match(input,29,FOLLOW_29_in_ruleFilterConstraint2484); 
+            otherlv_0=(Token)match(input,29,FOLLOW_29_in_ruleFilterConstraint2511); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getFilterConstraintAccess().getFilterConstraintKeyword_0());
                 
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1164:1: ( (lv_constraint_1_0= ruleEString ) )
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1165:1: (lv_constraint_1_0= ruleEString )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1174:1: ( (lv_constraint_1_0= ruleEString ) )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1175:1: (lv_constraint_1_0= ruleEString )
             {
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1165:1: (lv_constraint_1_0= ruleEString )
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1166:3: lv_constraint_1_0= ruleEString
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1175:1: (lv_constraint_1_0= ruleEString )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1176:3: lv_constraint_1_0= ruleEString
             {
              
             	        newCompositeNode(grammarAccess.getFilterConstraintAccess().getConstraintEStringParserRuleCall_1_0()); 
             	    
-            pushFollow(FOLLOW_ruleEString_in_ruleFilterConstraint2505);
+            pushFollow(FOLLOW_ruleEString_in_ruleFilterConstraint2532);
             lv_constraint_1_0=ruleEString();
 
             state._fsp--;
@@ -2695,8 +2729,542 @@ public class InternalExtensionParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleFilterConstraint"
 
 
+    // $ANTLR start "entryRuleAddReference"
+    // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1200:1: entryRuleAddReference returns [EObject current=null] : iv_ruleAddReference= ruleAddReference EOF ;
+    public final EObject entryRuleAddReference() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleAddReference = null;
+
+
+        try {
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1201:2: (iv_ruleAddReference= ruleAddReference EOF )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1202:2: iv_ruleAddReference= ruleAddReference EOF
+            {
+             newCompositeNode(grammarAccess.getAddReferenceRule()); 
+            pushFollow(FOLLOW_ruleAddReference_in_entryRuleAddReference2568);
+            iv_ruleAddReference=ruleAddReference();
+
+            state._fsp--;
+
+             current =iv_ruleAddReference; 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleAddReference2578); 
+
+            }
+
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleAddReference"
+
+
+    // $ANTLR start "ruleAddReference"
+    // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1209:1: ruleAddReference returns [EObject current=null] : (otherlv_0= 'add reference' ( (lv_property_1_0= RULE_ID ) ) otherlv_2= 'type' ( (otherlv_3= RULE_ID ) ) otherlv_4= '.' ( (lv_class_5_0= RULE_ID ) ) ( (lv_cardinality_6_0= ruleCardinality ) )? ( (lv_relationType_7_0= ruleRelationType ) )? ) ;
+    public final EObject ruleAddReference() throws RecognitionException {
+        EObject current = null;
+
+        Token otherlv_0=null;
+        Token lv_property_1_0=null;
+        Token otherlv_2=null;
+        Token otherlv_3=null;
+        Token otherlv_4=null;
+        Token lv_class_5_0=null;
+        AntlrDatatypeRuleToken lv_cardinality_6_0 = null;
+
+        AntlrDatatypeRuleToken lv_relationType_7_0 = null;
+
+
+         enterRule(); 
+            
+        try {
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1212:28: ( (otherlv_0= 'add reference' ( (lv_property_1_0= RULE_ID ) ) otherlv_2= 'type' ( (otherlv_3= RULE_ID ) ) otherlv_4= '.' ( (lv_class_5_0= RULE_ID ) ) ( (lv_cardinality_6_0= ruleCardinality ) )? ( (lv_relationType_7_0= ruleRelationType ) )? ) )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1213:1: (otherlv_0= 'add reference' ( (lv_property_1_0= RULE_ID ) ) otherlv_2= 'type' ( (otherlv_3= RULE_ID ) ) otherlv_4= '.' ( (lv_class_5_0= RULE_ID ) ) ( (lv_cardinality_6_0= ruleCardinality ) )? ( (lv_relationType_7_0= ruleRelationType ) )? )
+            {
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1213:1: (otherlv_0= 'add reference' ( (lv_property_1_0= RULE_ID ) ) otherlv_2= 'type' ( (otherlv_3= RULE_ID ) ) otherlv_4= '.' ( (lv_class_5_0= RULE_ID ) ) ( (lv_cardinality_6_0= ruleCardinality ) )? ( (lv_relationType_7_0= ruleRelationType ) )? )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1213:3: otherlv_0= 'add reference' ( (lv_property_1_0= RULE_ID ) ) otherlv_2= 'type' ( (otherlv_3= RULE_ID ) ) otherlv_4= '.' ( (lv_class_5_0= RULE_ID ) ) ( (lv_cardinality_6_0= ruleCardinality ) )? ( (lv_relationType_7_0= ruleRelationType ) )?
+            {
+            otherlv_0=(Token)match(input,30,FOLLOW_30_in_ruleAddReference2615); 
+
+                	newLeafNode(otherlv_0, grammarAccess.getAddReferenceAccess().getAddReferenceKeyword_0());
+                
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1217:1: ( (lv_property_1_0= RULE_ID ) )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1218:1: (lv_property_1_0= RULE_ID )
+            {
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1218:1: (lv_property_1_0= RULE_ID )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1219:3: lv_property_1_0= RULE_ID
+            {
+            lv_property_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleAddReference2632); 
+
+            			newLeafNode(lv_property_1_0, grammarAccess.getAddReferenceAccess().getPropertyIDTerminalRuleCall_1_0()); 
+            		
+
+            	        if (current==null) {
+            	            current = createModelElement(grammarAccess.getAddReferenceRule());
+            	        }
+                   		setWithLastConsumed(
+                   			current, 
+                   			"property",
+                    		lv_property_1_0, 
+                    		"ID");
+            	    
+
+            }
+
+
+            }
+
+            otherlv_2=(Token)match(input,23,FOLLOW_23_in_ruleAddReference2649); 
+
+                	newLeafNode(otherlv_2, grammarAccess.getAddReferenceAccess().getTypeKeyword_2());
+                
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1239:1: ( (otherlv_3= RULE_ID ) )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1240:1: (otherlv_3= RULE_ID )
+            {
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1240:1: (otherlv_3= RULE_ID )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1241:3: otherlv_3= RULE_ID
+            {
+
+            			if (current==null) {
+            	            current = createModelElement(grammarAccess.getAddReferenceRule());
+            	        }
+                    
+            otherlv_3=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleAddReference2669); 
+
+            		newLeafNode(otherlv_3, grammarAccess.getAddReferenceAccess().getPrefixPrefixCrossReference_3_0()); 
+            	
+
+            }
+
+
+            }
+
+            otherlv_4=(Token)match(input,19,FOLLOW_19_in_ruleAddReference2681); 
+
+                	newLeafNode(otherlv_4, grammarAccess.getAddReferenceAccess().getFullStopKeyword_4());
+                
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1256:1: ( (lv_class_5_0= RULE_ID ) )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1257:1: (lv_class_5_0= RULE_ID )
+            {
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1257:1: (lv_class_5_0= RULE_ID )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1258:3: lv_class_5_0= RULE_ID
+            {
+            lv_class_5_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleAddReference2698); 
+
+            			newLeafNode(lv_class_5_0, grammarAccess.getAddReferenceAccess().getClassIDTerminalRuleCall_5_0()); 
+            		
+
+            	        if (current==null) {
+            	            current = createModelElement(grammarAccess.getAddReferenceRule());
+            	        }
+                   		addWithLastConsumed(
+                   			current, 
+                   			"class",
+                    		lv_class_5_0, 
+                    		"ID");
+            	    
+
+            }
+
+
+            }
+
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1274:2: ( (lv_cardinality_6_0= ruleCardinality ) )?
+            int alt8=2;
+            int LA8_0 = input.LA(1);
+
+            if ( ((LA8_0>=31 && LA8_0<=36)) ) {
+                alt8=1;
+            }
+            switch (alt8) {
+                case 1 :
+                    // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1275:1: (lv_cardinality_6_0= ruleCardinality )
+                    {
+                    // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1275:1: (lv_cardinality_6_0= ruleCardinality )
+                    // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1276:3: lv_cardinality_6_0= ruleCardinality
+                    {
+                     
+                    	        newCompositeNode(grammarAccess.getAddReferenceAccess().getCardinalityCardinalityParserRuleCall_6_0()); 
+                    	    
+                    pushFollow(FOLLOW_ruleCardinality_in_ruleAddReference2724);
+                    lv_cardinality_6_0=ruleCardinality();
+
+                    state._fsp--;
+
+
+                    	        if (current==null) {
+                    	            current = createModelElementForParent(grammarAccess.getAddReferenceRule());
+                    	        }
+                           		add(
+                           			current, 
+                           			"cardinality",
+                            		lv_cardinality_6_0, 
+                            		"Cardinality");
+                    	        afterParserOrEnumRuleCall();
+                    	    
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1292:3: ( (lv_relationType_7_0= ruleRelationType ) )?
+            int alt9=2;
+            int LA9_0 = input.LA(1);
+
+            if ( ((LA9_0>=37 && LA9_0<=38)) ) {
+                alt9=1;
+            }
+            switch (alt9) {
+                case 1 :
+                    // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1293:1: (lv_relationType_7_0= ruleRelationType )
+                    {
+                    // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1293:1: (lv_relationType_7_0= ruleRelationType )
+                    // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1294:3: lv_relationType_7_0= ruleRelationType
+                    {
+                     
+                    	        newCompositeNode(grammarAccess.getAddReferenceAccess().getRelationTypeRelationTypeParserRuleCall_7_0()); 
+                    	    
+                    pushFollow(FOLLOW_ruleRelationType_in_ruleAddReference2746);
+                    lv_relationType_7_0=ruleRelationType();
+
+                    state._fsp--;
+
+
+                    	        if (current==null) {
+                    	            current = createModelElementForParent(grammarAccess.getAddReferenceRule());
+                    	        }
+                           		add(
+                           			current, 
+                           			"relationType",
+                            		lv_relationType_7_0, 
+                            		"RelationType");
+                    	        afterParserOrEnumRuleCall();
+                    	    
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+
+            }
+
+
+            }
+
+             leaveRule(); 
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleAddReference"
+
+
+    // $ANTLR start "entryRuleCardinality"
+    // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1318:1: entryRuleCardinality returns [String current=null] : iv_ruleCardinality= ruleCardinality EOF ;
+    public final String entryRuleCardinality() throws RecognitionException {
+        String current = null;
+
+        AntlrDatatypeRuleToken iv_ruleCardinality = null;
+
+
+        try {
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1319:2: (iv_ruleCardinality= ruleCardinality EOF )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1320:2: iv_ruleCardinality= ruleCardinality EOF
+            {
+             newCompositeNode(grammarAccess.getCardinalityRule()); 
+            pushFollow(FOLLOW_ruleCardinality_in_entryRuleCardinality2784);
+            iv_ruleCardinality=ruleCardinality();
+
+            state._fsp--;
+
+             current =iv_ruleCardinality.getText(); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleCardinality2795); 
+
+            }
+
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleCardinality"
+
+
+    // $ANTLR start "ruleCardinality"
+    // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1327:1: ruleCardinality returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= '*..1' | kw= '0..1' | kw= '1..1' | kw= '1..*' | kw= '*..*' | kw= '*' ) ;
+    public final AntlrDatatypeRuleToken ruleCardinality() throws RecognitionException {
+        AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
+
+        Token kw=null;
+
+         enterRule(); 
+            
+        try {
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1330:28: ( (kw= '*..1' | kw= '0..1' | kw= '1..1' | kw= '1..*' | kw= '*..*' | kw= '*' ) )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1331:1: (kw= '*..1' | kw= '0..1' | kw= '1..1' | kw= '1..*' | kw= '*..*' | kw= '*' )
+            {
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1331:1: (kw= '*..1' | kw= '0..1' | kw= '1..1' | kw= '1..*' | kw= '*..*' | kw= '*' )
+            int alt10=6;
+            switch ( input.LA(1) ) {
+            case 31:
+                {
+                alt10=1;
+                }
+                break;
+            case 32:
+                {
+                alt10=2;
+                }
+                break;
+            case 33:
+                {
+                alt10=3;
+                }
+                break;
+            case 34:
+                {
+                alt10=4;
+                }
+                break;
+            case 35:
+                {
+                alt10=5;
+                }
+                break;
+            case 36:
+                {
+                alt10=6;
+                }
+                break;
+            default:
+                NoViableAltException nvae =
+                    new NoViableAltException("", 10, 0, input);
+
+                throw nvae;
+            }
+
+            switch (alt10) {
+                case 1 :
+                    // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1332:2: kw= '*..1'
+                    {
+                    kw=(Token)match(input,31,FOLLOW_31_in_ruleCardinality2833); 
+
+                            current.merge(kw);
+                            newLeafNode(kw, grammarAccess.getCardinalityAccess().getAsteriskFullStopFullStopDigitOneKeyword_0()); 
+                        
+
+                    }
+                    break;
+                case 2 :
+                    // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1339:2: kw= '0..1'
+                    {
+                    kw=(Token)match(input,32,FOLLOW_32_in_ruleCardinality2852); 
+
+                            current.merge(kw);
+                            newLeafNode(kw, grammarAccess.getCardinalityAccess().getDigitZeroFullStopFullStopDigitOneKeyword_1()); 
+                        
+
+                    }
+                    break;
+                case 3 :
+                    // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1346:2: kw= '1..1'
+                    {
+                    kw=(Token)match(input,33,FOLLOW_33_in_ruleCardinality2871); 
+
+                            current.merge(kw);
+                            newLeafNode(kw, grammarAccess.getCardinalityAccess().getDigitOneFullStopFullStopDigitOneKeyword_2()); 
+                        
+
+                    }
+                    break;
+                case 4 :
+                    // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1353:2: kw= '1..*'
+                    {
+                    kw=(Token)match(input,34,FOLLOW_34_in_ruleCardinality2890); 
+
+                            current.merge(kw);
+                            newLeafNode(kw, grammarAccess.getCardinalityAccess().getDigitOneFullStopFullStopAsteriskKeyword_3()); 
+                        
+
+                    }
+                    break;
+                case 5 :
+                    // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1360:2: kw= '*..*'
+                    {
+                    kw=(Token)match(input,35,FOLLOW_35_in_ruleCardinality2909); 
+
+                            current.merge(kw);
+                            newLeafNode(kw, grammarAccess.getCardinalityAccess().getAsteriskFullStopFullStopAsteriskKeyword_4()); 
+                        
+
+                    }
+                    break;
+                case 6 :
+                    // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1367:2: kw= '*'
+                    {
+                    kw=(Token)match(input,36,FOLLOW_36_in_ruleCardinality2928); 
+
+                            current.merge(kw);
+                            newLeafNode(kw, grammarAccess.getCardinalityAccess().getAsteriskKeyword_5()); 
+                        
+
+                    }
+                    break;
+
+            }
+
+
+            }
+
+             leaveRule(); 
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleCardinality"
+
+
+    // $ANTLR start "entryRuleRelationType"
+    // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1380:1: entryRuleRelationType returns [String current=null] : iv_ruleRelationType= ruleRelationType EOF ;
+    public final String entryRuleRelationType() throws RecognitionException {
+        String current = null;
+
+        AntlrDatatypeRuleToken iv_ruleRelationType = null;
+
+
+        try {
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1381:2: (iv_ruleRelationType= ruleRelationType EOF )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1382:2: iv_ruleRelationType= ruleRelationType EOF
+            {
+             newCompositeNode(grammarAccess.getRelationTypeRule()); 
+            pushFollow(FOLLOW_ruleRelationType_in_entryRuleRelationType2969);
+            iv_ruleRelationType=ruleRelationType();
+
+            state._fsp--;
+
+             current =iv_ruleRelationType.getText(); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleRelationType2980); 
+
+            }
+
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleRelationType"
+
+
+    // $ANTLR start "ruleRelationType"
+    // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1389:1: ruleRelationType returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= 'composition' | kw= 'association' ) ;
+    public final AntlrDatatypeRuleToken ruleRelationType() throws RecognitionException {
+        AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
+
+        Token kw=null;
+
+         enterRule(); 
+            
+        try {
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1392:28: ( (kw= 'composition' | kw= 'association' ) )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1393:1: (kw= 'composition' | kw= 'association' )
+            {
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1393:1: (kw= 'composition' | kw= 'association' )
+            int alt11=2;
+            int LA11_0 = input.LA(1);
+
+            if ( (LA11_0==37) ) {
+                alt11=1;
+            }
+            else if ( (LA11_0==38) ) {
+                alt11=2;
+            }
+            else {
+                NoViableAltException nvae =
+                    new NoViableAltException("", 11, 0, input);
+
+                throw nvae;
+            }
+            switch (alt11) {
+                case 1 :
+                    // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1394:2: kw= 'composition'
+                    {
+                    kw=(Token)match(input,37,FOLLOW_37_in_ruleRelationType3018); 
+
+                            current.merge(kw);
+                            newLeafNode(kw, grammarAccess.getRelationTypeAccess().getCompositionKeyword_0()); 
+                        
+
+                    }
+                    break;
+                case 2 :
+                    // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1401:2: kw= 'association'
+                    {
+                    kw=(Token)match(input,38,FOLLOW_38_in_ruleRelationType3037); 
+
+                            current.merge(kw);
+                            newLeafNode(kw, grammarAccess.getRelationTypeAccess().getAssociationKeyword_1()); 
+                        
+
+                    }
+                    break;
+
+            }
+
+
+            }
+
+             leaveRule(); 
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleRelationType"
+
+
     // $ANTLR start "entryRuleEString"
-    // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1190:1: entryRuleEString returns [String current=null] : iv_ruleEString= ruleEString EOF ;
+    // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1414:1: entryRuleEString returns [String current=null] : iv_ruleEString= ruleEString EOF ;
     public final String entryRuleEString() throws RecognitionException {
         String current = null;
 
@@ -2704,17 +3272,17 @@ public class InternalExtensionParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1191:2: (iv_ruleEString= ruleEString EOF )
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1192:2: iv_ruleEString= ruleEString EOF
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1415:2: (iv_ruleEString= ruleEString EOF )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1416:2: iv_ruleEString= ruleEString EOF
             {
              newCompositeNode(grammarAccess.getEStringRule()); 
-            pushFollow(FOLLOW_ruleEString_in_entryRuleEString2542);
+            pushFollow(FOLLOW_ruleEString_in_entryRuleEString3078);
             iv_ruleEString=ruleEString();
 
             state._fsp--;
 
              current =iv_ruleEString.getText(); 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleEString2553); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleEString3089); 
 
             }
 
@@ -2732,7 +3300,7 @@ public class InternalExtensionParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleEString"
-    // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1199:1: ruleEString returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID ) ;
+    // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1423:1: ruleEString returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID ) ;
     public final AntlrDatatypeRuleToken ruleEString() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -2742,30 +3310,30 @@ public class InternalExtensionParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1202:28: ( (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID ) )
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1203:1: (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1426:28: ( (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID ) )
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1427:1: (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID )
             {
-            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1203:1: (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID )
-            int alt8=2;
-            int LA8_0 = input.LA(1);
+            // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1427:1: (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID )
+            int alt12=2;
+            int LA12_0 = input.LA(1);
 
-            if ( (LA8_0==RULE_STRING) ) {
-                alt8=1;
+            if ( (LA12_0==RULE_STRING) ) {
+                alt12=1;
             }
-            else if ( (LA8_0==RULE_ID) ) {
-                alt8=2;
+            else if ( (LA12_0==RULE_ID) ) {
+                alt12=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 8, 0, input);
+                    new NoViableAltException("", 12, 0, input);
 
                 throw nvae;
             }
-            switch (alt8) {
+            switch (alt12) {
                 case 1 :
-                    // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1203:6: this_STRING_0= RULE_STRING
+                    // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1427:6: this_STRING_0= RULE_STRING
                     {
-                    this_STRING_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleEString2593); 
+                    this_STRING_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleEString3129); 
 
                     		current.merge(this_STRING_0);
                         
@@ -2776,9 +3344,9 @@ public class InternalExtensionParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1211:10: this_ID_1= RULE_ID
+                    // ../monoge.dsl/src-gen/monoge/dsl/parser/antlr/internal/InternalExtension.g:1435:10: this_ID_1= RULE_ID
                     {
-                    this_ID_1=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleEString2619); 
+                    this_ID_1=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleEString3155); 
 
                     		current.merge(this_ID_1);
                         
@@ -2870,56 +3438,79 @@ public class InternalExtensionParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_RULE_ID_in_ruleModifyClass1326 = new BitSet(new long[]{0x0000000000080000L});
     public static final BitSet FOLLOW_19_in_ruleModifyClass1338 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_RULE_ID_in_ruleModifyClass1355 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_15_in_ruleModifyClass1372 = new BitSet(new long[]{0x0000000035410000L});
-    public static final BitSet FOLLOW_ruleModifyOperator_in_ruleModifyClass1393 = new BitSet(new long[]{0x0000000035410000L});
+    public static final BitSet FOLLOW_15_in_ruleModifyClass1372 = new BitSet(new long[]{0x0000000075410000L});
+    public static final BitSet FOLLOW_ruleModifyOperator_in_ruleModifyClass1393 = new BitSet(new long[]{0x0000000075410000L});
     public static final BitSet FOLLOW_16_in_ruleModifyClass1406 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleModifyOperator_in_entryRuleModifyOperator1442 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleModifyOperator1452 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleAddProperty_in_ruleModifyOperator1499 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleModifyProperty_in_ruleModifyOperator1526 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleFilterProperty_in_ruleModifyOperator1553 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAddConstraint_in_ruleModifyOperator1580 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleFilterConstraint_in_ruleModifyOperator1607 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAddProperty_in_entryRuleAddProperty1642 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleAddProperty1652 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_22_in_ruleAddProperty1689 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleAddProperty1706 = new BitSet(new long[]{0x0000000000800000L});
-    public static final BitSet FOLLOW_23_in_ruleAddProperty1723 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleAddProperty1740 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleModifyProperty_in_entryRuleModifyProperty1781 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleModifyProperty1791 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_24_in_ruleModifyProperty1828 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleModifyProperty1845 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_ruleValueAssignment_in_ruleModifyProperty1871 = new BitSet(new long[]{0x0000000000004002L});
-    public static final BitSet FOLLOW_14_in_ruleModifyProperty1884 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_ruleValueAssignment_in_ruleModifyProperty1905 = new BitSet(new long[]{0x0000000000004002L});
-    public static final BitSet FOLLOW_ruleValueAssignment_in_entryRuleValueAssignment1943 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleValueAssignment1953 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleValueAssignment1995 = new BitSet(new long[]{0x0000000002000000L});
-    public static final BitSet FOLLOW_25_in_ruleValueAssignment2012 = new BitSet(new long[]{0x0000000000000030L});
-    public static final BitSet FOLLOW_ruleEString_in_ruleValueAssignment2033 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleFilterProperty_in_entryRuleFilterProperty2069 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleFilterProperty2079 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_26_in_ruleFilterProperty2116 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleFilterProperty2133 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleFilterClass_in_entryRuleFilterClass2174 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleFilterClass2184 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_27_in_ruleFilterClass2221 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleFilterClass2241 = new BitSet(new long[]{0x0000000000080000L});
-    public static final BitSet FOLLOW_19_in_ruleFilterClass2253 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleFilterClass2270 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAddConstraint_in_entryRuleAddConstraint2311 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleAddConstraint2321 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_28_in_ruleAddConstraint2358 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleAddConstraint2375 = new BitSet(new long[]{0x0000000000000030L});
-    public static final BitSet FOLLOW_ruleEString_in_ruleAddConstraint2401 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleFilterConstraint_in_entryRuleFilterConstraint2437 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleFilterConstraint2447 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_29_in_ruleFilterConstraint2484 = new BitSet(new long[]{0x0000000000000030L});
-    public static final BitSet FOLLOW_ruleEString_in_ruleFilterConstraint2505 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleEString_in_entryRuleEString2542 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleEString2553 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleEString2593 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleEString2619 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAddReference_in_ruleModifyOperator1526 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleModifyProperty_in_ruleModifyOperator1553 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleFilterProperty_in_ruleModifyOperator1580 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAddConstraint_in_ruleModifyOperator1607 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleFilterConstraint_in_ruleModifyOperator1634 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAddProperty_in_entryRuleAddProperty1669 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleAddProperty1679 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_22_in_ruleAddProperty1716 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleAddProperty1733 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_23_in_ruleAddProperty1750 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleAddProperty1767 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleModifyProperty_in_entryRuleModifyProperty1808 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleModifyProperty1818 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_24_in_ruleModifyProperty1855 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleModifyProperty1872 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_ruleValueAssignment_in_ruleModifyProperty1898 = new BitSet(new long[]{0x0000000000004002L});
+    public static final BitSet FOLLOW_14_in_ruleModifyProperty1911 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_ruleValueAssignment_in_ruleModifyProperty1932 = new BitSet(new long[]{0x0000000000004002L});
+    public static final BitSet FOLLOW_ruleValueAssignment_in_entryRuleValueAssignment1970 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleValueAssignment1980 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleValueAssignment2022 = new BitSet(new long[]{0x0000000002000000L});
+    public static final BitSet FOLLOW_25_in_ruleValueAssignment2039 = new BitSet(new long[]{0x0000000000000030L});
+    public static final BitSet FOLLOW_ruleEString_in_ruleValueAssignment2060 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleFilterProperty_in_entryRuleFilterProperty2096 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleFilterProperty2106 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_26_in_ruleFilterProperty2143 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleFilterProperty2160 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleFilterClass_in_entryRuleFilterClass2201 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleFilterClass2211 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_27_in_ruleFilterClass2248 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleFilterClass2268 = new BitSet(new long[]{0x0000000000080000L});
+    public static final BitSet FOLLOW_19_in_ruleFilterClass2280 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleFilterClass2297 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAddConstraint_in_entryRuleAddConstraint2338 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleAddConstraint2348 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_28_in_ruleAddConstraint2385 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleAddConstraint2402 = new BitSet(new long[]{0x0000000000000030L});
+    public static final BitSet FOLLOW_ruleEString_in_ruleAddConstraint2428 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleFilterConstraint_in_entryRuleFilterConstraint2464 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleFilterConstraint2474 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_29_in_ruleFilterConstraint2511 = new BitSet(new long[]{0x0000000000000030L});
+    public static final BitSet FOLLOW_ruleEString_in_ruleFilterConstraint2532 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAddReference_in_entryRuleAddReference2568 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleAddReference2578 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_30_in_ruleAddReference2615 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleAddReference2632 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_23_in_ruleAddReference2649 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleAddReference2669 = new BitSet(new long[]{0x0000000000080000L});
+    public static final BitSet FOLLOW_19_in_ruleAddReference2681 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleAddReference2698 = new BitSet(new long[]{0x0000007F80000002L});
+    public static final BitSet FOLLOW_ruleCardinality_in_ruleAddReference2724 = new BitSet(new long[]{0x0000006000000002L});
+    public static final BitSet FOLLOW_ruleRelationType_in_ruleAddReference2746 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleCardinality_in_entryRuleCardinality2784 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleCardinality2795 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_31_in_ruleCardinality2833 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_32_in_ruleCardinality2852 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_33_in_ruleCardinality2871 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_34_in_ruleCardinality2890 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_35_in_ruleCardinality2909 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_36_in_ruleCardinality2928 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleRelationType_in_entryRuleRelationType2969 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleRelationType2980 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_37_in_ruleRelationType3018 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_38_in_ruleRelationType3037 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleEString_in_entryRuleEString3078 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleEString3089 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleEString3129 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleEString3155 = new BitSet(new long[]{0x0000000000000002L});
 
 }

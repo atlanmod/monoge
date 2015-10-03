@@ -37,7 +37,7 @@ ModifyClass:
 	'}'
 ;
 ModifyOperator:
-	AddProperty | ModifyProperty | FilterProperty | AddConstraint | FilterConstraint
+	AddProperty | AddReference | ModifyProperty | FilterProperty | AddConstraint | FilterConstraint
 ;
 //4- Add property: Alter Class classC Add propertyA [optional attributes]
 AddProperty:
@@ -66,6 +66,17 @@ AddConstraint:
 FilterConstraint:
 	'filter constraint' constraint=EString
 ;
+//10- Add reference: add reference refB type ClassB
+AddReference:
+	'add reference' property=ID 'type' prefix+=[Prefix] '.' class+=ID (cardinality+=Cardinality)? (relationType+=RelationType)?
+;
+Cardinality:
+	'*..1' | '0..1' | '1..1' | '1..*' | '*..*' | '*'
+;
+RelationType:
+	'composition' | 'association'
+;
+
 EString returns ecore::EString:
 	STRING | ID
 ;

@@ -1,0 +1,9 @@
+define DoDAFextension extending DoDAF:dodaf{
+	modify class dodaf.SystemFunctionSymbol{
+		add property FunctionType type String
+	}
+	modify class dodaf.DataFlowSymbol{
+		filter property SASymHasFromArrow
+		filter property SASymHasToArrow
+	}
+}

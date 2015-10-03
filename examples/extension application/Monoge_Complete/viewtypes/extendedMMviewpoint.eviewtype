@@ -1,0 +1,6 @@
+contributingMetamodels=Monoge_Complete/metamodels/Original_Metamodel.ecore
+correspondenceModel=Monoge_Complete/viewtypes/extendedMMviewpoint.xmi
+correspondenceModelBase=Monoge_Complete/viewtypes/extendedMMviewpoint.ecl
+filtersMetamodel=/Monoge_Complete/viewtypes/extendedMMviewpoint.ecore
+originalMetamodel=http://Original_Metamodel/1.0
+viewpointModel=platform:/resource/Monoge_Complete/resources/extendedMMviewpoint.xmi

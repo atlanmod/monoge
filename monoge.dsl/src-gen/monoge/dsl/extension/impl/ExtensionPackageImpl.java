@@ -4,6 +4,7 @@ package monoge.dsl.extension.impl;
 
 import monoge.dsl.extension.AddConstraint;
 import monoge.dsl.extension.AddProperty;
+import monoge.dsl.extension.AddReference;
 import monoge.dsl.extension.Create;
 import monoge.dsl.extension.Extension;
 import monoge.dsl.extension.ExtensionFactory;
@@ -147,6 +148,13 @@ public class ExtensionPackageImpl extends EPackageImpl implements ExtensionPacka
    * @generated
    */
   private EClass filterConstraintEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass addReferenceEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -656,6 +664,66 @@ public class ExtensionPackageImpl extends EPackageImpl implements ExtensionPacka
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getAddReference()
+  {
+    return addReferenceEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getAddReference_Property()
+  {
+    return (EAttribute)addReferenceEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getAddReference_Prefix()
+  {
+    return (EReference)addReferenceEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getAddReference_Class()
+  {
+    return (EAttribute)addReferenceEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getAddReference_Cardinality()
+  {
+    return (EAttribute)addReferenceEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getAddReference_RelationType()
+  {
+    return (EAttribute)addReferenceEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public ExtensionFactory getExtensionFactory()
   {
     return (ExtensionFactory)getEFactoryInstance();
@@ -740,6 +808,13 @@ public class ExtensionPackageImpl extends EPackageImpl implements ExtensionPacka
 
     filterConstraintEClass = createEClass(FILTER_CONSTRAINT);
     createEAttribute(filterConstraintEClass, FILTER_CONSTRAINT__CONSTRAINT);
+
+    addReferenceEClass = createEClass(ADD_REFERENCE);
+    createEAttribute(addReferenceEClass, ADD_REFERENCE__PROPERTY);
+    createEReference(addReferenceEClass, ADD_REFERENCE__PREFIX);
+    createEAttribute(addReferenceEClass, ADD_REFERENCE__CLASS);
+    createEAttribute(addReferenceEClass, ADD_REFERENCE__CARDINALITY);
+    createEAttribute(addReferenceEClass, ADD_REFERENCE__RELATION_TYPE);
   }
 
   /**
@@ -781,6 +856,7 @@ public class ExtensionPackageImpl extends EPackageImpl implements ExtensionPacka
     filterClassEClass.getESuperTypes().add(this.getExtension());
     addConstraintEClass.getESuperTypes().add(this.getModifyOperator());
     filterConstraintEClass.getESuperTypes().add(this.getModifyOperator());
+    addReferenceEClass.getESuperTypes().add(this.getModifyOperator());
 
     // Initialize classes and features; add operations and parameters
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -842,6 +918,13 @@ public class ExtensionPackageImpl extends EPackageImpl implements ExtensionPacka
 
     initEClass(filterConstraintEClass, FilterConstraint.class, "FilterConstraint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getFilterConstraint_Constraint(), ecorePackage.getEString(), "constraint", null, 0, 1, FilterConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(addReferenceEClass, AddReference.class, "AddReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getAddReference_Property(), ecorePackage.getEString(), "property", null, 0, 1, AddReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAddReference_Prefix(), this.getPrefix(), null, "prefix", null, 0, -1, AddReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getAddReference_Class(), ecorePackage.getEString(), "class", null, 0, -1, AddReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getAddReference_Cardinality(), ecorePackage.getEString(), "cardinality", null, 0, -1, AddReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getAddReference_RelationType(), ecorePackage.getEString(), "relationType", null, 0, -1, AddReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

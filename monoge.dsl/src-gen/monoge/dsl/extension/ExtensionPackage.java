@@ -612,6 +612,70 @@ public interface ExtensionPackage extends EPackage
    */
   int FILTER_CONSTRAINT_FEATURE_COUNT = MODIFY_OPERATOR_FEATURE_COUNT + 1;
 
+  /**
+   * The meta object id for the '{@link monoge.dsl.extension.impl.AddReferenceImpl <em>Add Reference</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see monoge.dsl.extension.impl.AddReferenceImpl
+   * @see monoge.dsl.extension.impl.ExtensionPackageImpl#getAddReference()
+   * @generated
+   */
+  int ADD_REFERENCE = 16;
+
+  /**
+   * The feature id for the '<em><b>Property</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ADD_REFERENCE__PROPERTY = MODIFY_OPERATOR_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Prefix</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ADD_REFERENCE__PREFIX = MODIFY_OPERATOR_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Class</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ADD_REFERENCE__CLASS = MODIFY_OPERATOR_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Cardinality</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ADD_REFERENCE__CARDINALITY = MODIFY_OPERATOR_FEATURE_COUNT + 3;
+
+  /**
+   * The feature id for the '<em><b>Relation Type</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ADD_REFERENCE__RELATION_TYPE = MODIFY_OPERATOR_FEATURE_COUNT + 4;
+
+  /**
+   * The number of structural features of the '<em>Add Reference</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ADD_REFERENCE_FEATURE_COUNT = MODIFY_OPERATOR_FEATURE_COUNT + 5;
+
 
   /**
    * Returns the meta object for class '{@link monoge.dsl.extension.Model <em>Model</em>}'.
@@ -1082,6 +1146,71 @@ public interface ExtensionPackage extends EPackage
   EAttribute getFilterConstraint_Constraint();
 
   /**
+   * Returns the meta object for class '{@link monoge.dsl.extension.AddReference <em>Add Reference</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Add Reference</em>'.
+   * @see monoge.dsl.extension.AddReference
+   * @generated
+   */
+  EClass getAddReference();
+
+  /**
+   * Returns the meta object for the attribute '{@link monoge.dsl.extension.AddReference#getProperty <em>Property</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Property</em>'.
+   * @see monoge.dsl.extension.AddReference#getProperty()
+   * @see #getAddReference()
+   * @generated
+   */
+  EAttribute getAddReference_Property();
+
+  /**
+   * Returns the meta object for the reference list '{@link monoge.dsl.extension.AddReference#getPrefix <em>Prefix</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference list '<em>Prefix</em>'.
+   * @see monoge.dsl.extension.AddReference#getPrefix()
+   * @see #getAddReference()
+   * @generated
+   */
+  EReference getAddReference_Prefix();
+
+  /**
+   * Returns the meta object for the attribute list '{@link monoge.dsl.extension.AddReference#getClass_ <em>Class</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Class</em>'.
+   * @see monoge.dsl.extension.AddReference#getClass_()
+   * @see #getAddReference()
+   * @generated
+   */
+  EAttribute getAddReference_Class();
+
+  /**
+   * Returns the meta object for the attribute list '{@link monoge.dsl.extension.AddReference#getCardinality <em>Cardinality</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Cardinality</em>'.
+   * @see monoge.dsl.extension.AddReference#getCardinality()
+   * @see #getAddReference()
+   * @generated
+   */
+  EAttribute getAddReference_Cardinality();
+
+  /**
+   * Returns the meta object for the attribute list '{@link monoge.dsl.extension.AddReference#getRelationType <em>Relation Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Relation Type</em>'.
+   * @see monoge.dsl.extension.AddReference#getRelationType()
+   * @see #getAddReference()
+   * @generated
+   */
+  EAttribute getAddReference_RelationType();
+
+  /**
    * Returns the factory that creates the instances of the model.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1487,6 +1616,56 @@ public interface ExtensionPackage extends EPackage
      * @generated
      */
     EAttribute FILTER_CONSTRAINT__CONSTRAINT = eINSTANCE.getFilterConstraint_Constraint();
+
+    /**
+     * The meta object literal for the '{@link monoge.dsl.extension.impl.AddReferenceImpl <em>Add Reference</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see monoge.dsl.extension.impl.AddReferenceImpl
+     * @see monoge.dsl.extension.impl.ExtensionPackageImpl#getAddReference()
+     * @generated
+     */
+    EClass ADD_REFERENCE = eINSTANCE.getAddReference();
+
+    /**
+     * The meta object literal for the '<em><b>Property</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ADD_REFERENCE__PROPERTY = eINSTANCE.getAddReference_Property();
+
+    /**
+     * The meta object literal for the '<em><b>Prefix</b></em>' reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ADD_REFERENCE__PREFIX = eINSTANCE.getAddReference_Prefix();
+
+    /**
+     * The meta object literal for the '<em><b>Class</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ADD_REFERENCE__CLASS = eINSTANCE.getAddReference_Class();
+
+    /**
+     * The meta object literal for the '<em><b>Cardinality</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ADD_REFERENCE__CARDINALITY = eINSTANCE.getAddReference_Cardinality();
+
+    /**
+     * The meta object literal for the '<em><b>Relation Type</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ADD_REFERENCE__RELATION_TYPE = eINSTANCE.getAddReference_RelationType();
 
   }
 

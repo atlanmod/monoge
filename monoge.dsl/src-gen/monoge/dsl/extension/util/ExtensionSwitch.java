@@ -194,6 +194,14 @@ public class ExtensionSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case ExtensionPackage.ADD_REFERENCE:
+      {
+        AddReference addReference = (AddReference)theEObject;
+        T result = caseAddReference(addReference);
+        if (result == null) result = caseModifyOperator(addReference);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       default: return defaultCase(theEObject);
     }
   }
@@ -450,6 +458,22 @@ public class ExtensionSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseFilterConstraint(FilterConstraint object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Add Reference</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Add Reference</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAddReference(AddReference object)
   {
     return null;
   }

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="DODAF" nsURI="http://DODAF/1.0" nsPrefix="DODAF">
+  <eClassifiers xsi:type="ecore:EClass" name="NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SystemFunctionSymbol" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="children" upperBound="-1"
+        eType="#//SystemFunctionSymbol"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DataFlowSymbol" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//SystemFunctionSymbol"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//SystemFunctionSymbol"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sourceChildren" upperBound="-1"
+        eType="#//DataFlowSymbol" eOpposite="#//DataFlowSymbol/sourceParent"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sourceParent" eType="#//DataFlowSymbol"
+        eOpposite="#//DataFlowSymbol/sourceChildren"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="targetChildren" upperBound="-1"
+        eType="#//DataFlowSymbol" eOpposite="#//DataFlowSymbol/targetParent"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="targetParent" eType="#//DataFlowSymbol"
+        eOpposite="#//DataFlowSymbol/targetChildren"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="content" lowerBound="1"
+        eType="#//SystemFlowContents"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SASymHasFromArrow" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SASymHasToArrow" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SystemFlowContents" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
+        eType="#//PhysicalEntity"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PhysicalEntity" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="children" upperBound="-1"
+        eType="#//PhysicalEntity"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" upperBound="-1"
+        eType="#//PhysicalEntity"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entityProperties" upperBound="-1"
+        eType="#//PhysicalEntityProperty"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PhysicalEntityRelationship" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
+        eType="#//PhysicalEntity"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
+        eType="#//PhysicalEntity"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PhysicalEntityProperty" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//PhysicalEntity"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SystemInterface" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="exchanges" upperBound="-1"
+        eType="#//SystemExchange"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//SystemEntity"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//SystemEntity"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SystemEntity" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="children" upperBound="-1"
+        eType="#//SystemEntity"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SystemEntityFunction" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="module" eType="#//SystemEntity"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="function" eType="#//SystemFunctionSymbol"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SystemExchange" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//SystemEntityFunction"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//SystemEntityFunction"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="flow" lowerBound="1" eType="#//DataFlowSymbol"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DODAF">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="systemFunctionSymbols"
+        upperBound="-1" eType="#//SystemFunctionSymbol" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dataFlowSymbols" upperBound="-1"
+        eType="#//DataFlowSymbol" containment="true"/>
+  </eClassifiers>
+</ecore:EPackage>

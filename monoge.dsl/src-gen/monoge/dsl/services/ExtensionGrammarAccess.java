@@ -401,32 +401,36 @@ public class ExtensionGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ModifyOperator");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cAddPropertyParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cModifyPropertyParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cFilterPropertyParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final RuleCall cAddConstraintParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
-		private final RuleCall cFilterConstraintParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cAddReferenceParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cModifyPropertyParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cFilterPropertyParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cAddConstraintParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cFilterConstraintParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
 		
 		//ModifyOperator:
-		//	AddProperty | ModifyProperty | FilterProperty | AddConstraint | FilterConstraint;
+		//	AddProperty | AddReference | ModifyProperty | FilterProperty | AddConstraint | FilterConstraint;
 		public ParserRule getRule() { return rule; }
 
-		//AddProperty | ModifyProperty | FilterProperty | AddConstraint | FilterConstraint
+		//AddProperty | AddReference | ModifyProperty | FilterProperty | AddConstraint | FilterConstraint
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//AddProperty
 		public RuleCall getAddPropertyParserRuleCall_0() { return cAddPropertyParserRuleCall_0; }
 
+		//AddReference
+		public RuleCall getAddReferenceParserRuleCall_1() { return cAddReferenceParserRuleCall_1; }
+
 		//ModifyProperty
-		public RuleCall getModifyPropertyParserRuleCall_1() { return cModifyPropertyParserRuleCall_1; }
+		public RuleCall getModifyPropertyParserRuleCall_2() { return cModifyPropertyParserRuleCall_2; }
 
 		//FilterProperty
-		public RuleCall getFilterPropertyParserRuleCall_2() { return cFilterPropertyParserRuleCall_2; }
+		public RuleCall getFilterPropertyParserRuleCall_3() { return cFilterPropertyParserRuleCall_3; }
 
 		//AddConstraint
-		public RuleCall getAddConstraintParserRuleCall_3() { return cAddConstraintParserRuleCall_3; }
+		public RuleCall getAddConstraintParserRuleCall_4() { return cAddConstraintParserRuleCall_4; }
 
 		//FilterConstraint
-		public RuleCall getFilterConstraintParserRuleCall_4() { return cFilterConstraintParserRuleCall_4; }
+		public RuleCall getFilterConstraintParserRuleCall_5() { return cFilterConstraintParserRuleCall_5; }
 	}
 
 	public class AddPropertyElements extends AbstractParserRuleElementFinder {
@@ -671,6 +675,132 @@ public class ExtensionGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getConstraintEStringParserRuleCall_1_0() { return cConstraintEStringParserRuleCall_1_0; }
 	}
 
+	public class AddReferenceElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "AddReference");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cAddReferenceKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cPropertyAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cPropertyIDTerminalRuleCall_1_0 = (RuleCall)cPropertyAssignment_1.eContents().get(0);
+		private final Keyword cTypeKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cPrefixAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final CrossReference cPrefixPrefixCrossReference_3_0 = (CrossReference)cPrefixAssignment_3.eContents().get(0);
+		private final RuleCall cPrefixPrefixIDTerminalRuleCall_3_0_1 = (RuleCall)cPrefixPrefixCrossReference_3_0.eContents().get(1);
+		private final Keyword cFullStopKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cClassAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cClassIDTerminalRuleCall_5_0 = (RuleCall)cClassAssignment_5.eContents().get(0);
+		private final Assignment cCardinalityAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cCardinalityCardinalityParserRuleCall_6_0 = (RuleCall)cCardinalityAssignment_6.eContents().get(0);
+		private final Assignment cRelationTypeAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cRelationTypeRelationTypeParserRuleCall_7_0 = (RuleCall)cRelationTypeAssignment_7.eContents().get(0);
+		
+		////10- Add reference: add reference refB type ClassB
+		//AddReference:
+		//	"add reference" property=ID "type" prefix+=[Prefix] "." class+=ID cardinality+=Cardinality?
+		//	relationType+=RelationType?;
+		public ParserRule getRule() { return rule; }
+
+		//"add reference" property=ID "type" prefix+=[Prefix] "." class+=ID cardinality+=Cardinality? relationType+=RelationType?
+		public Group getGroup() { return cGroup; }
+
+		//"add reference"
+		public Keyword getAddReferenceKeyword_0() { return cAddReferenceKeyword_0; }
+
+		//property=ID
+		public Assignment getPropertyAssignment_1() { return cPropertyAssignment_1; }
+
+		//ID
+		public RuleCall getPropertyIDTerminalRuleCall_1_0() { return cPropertyIDTerminalRuleCall_1_0; }
+
+		//"type"
+		public Keyword getTypeKeyword_2() { return cTypeKeyword_2; }
+
+		//prefix+=[Prefix]
+		public Assignment getPrefixAssignment_3() { return cPrefixAssignment_3; }
+
+		//[Prefix]
+		public CrossReference getPrefixPrefixCrossReference_3_0() { return cPrefixPrefixCrossReference_3_0; }
+
+		//ID
+		public RuleCall getPrefixPrefixIDTerminalRuleCall_3_0_1() { return cPrefixPrefixIDTerminalRuleCall_3_0_1; }
+
+		//"."
+		public Keyword getFullStopKeyword_4() { return cFullStopKeyword_4; }
+
+		//class+=ID
+		public Assignment getClassAssignment_5() { return cClassAssignment_5; }
+
+		//ID
+		public RuleCall getClassIDTerminalRuleCall_5_0() { return cClassIDTerminalRuleCall_5_0; }
+
+		//cardinality+=Cardinality?
+		public Assignment getCardinalityAssignment_6() { return cCardinalityAssignment_6; }
+
+		//Cardinality
+		public RuleCall getCardinalityCardinalityParserRuleCall_6_0() { return cCardinalityCardinalityParserRuleCall_6_0; }
+
+		//relationType+=RelationType?
+		public Assignment getRelationTypeAssignment_7() { return cRelationTypeAssignment_7; }
+
+		//RelationType
+		public RuleCall getRelationTypeRelationTypeParserRuleCall_7_0() { return cRelationTypeRelationTypeParserRuleCall_7_0; }
+	}
+
+	public class CardinalityElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Cardinality");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Keyword cAsteriskFullStopFullStopDigitOneKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
+		private final Keyword cDigitZeroFullStopFullStopDigitOneKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
+		private final Keyword cDigitOneFullStopFullStopDigitOneKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
+		private final Keyword cDigitOneFullStopFullStopAsteriskKeyword_3 = (Keyword)cAlternatives.eContents().get(3);
+		private final Keyword cAsteriskFullStopFullStopAsteriskKeyword_4 = (Keyword)cAlternatives.eContents().get(4);
+		private final Keyword cAsteriskKeyword_5 = (Keyword)cAlternatives.eContents().get(5);
+		
+		//Cardinality:
+		//	"*..1" | "0..1" | "1..1" | "1..*" | "*..*" | "*";
+		public ParserRule getRule() { return rule; }
+
+		//"*..1" | "0..1" | "1..1" | "1..*" | "*..*" | "*"
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//"*..1"
+		public Keyword getAsteriskFullStopFullStopDigitOneKeyword_0() { return cAsteriskFullStopFullStopDigitOneKeyword_0; }
+
+		//"0..1"
+		public Keyword getDigitZeroFullStopFullStopDigitOneKeyword_1() { return cDigitZeroFullStopFullStopDigitOneKeyword_1; }
+
+		//"1..1"
+		public Keyword getDigitOneFullStopFullStopDigitOneKeyword_2() { return cDigitOneFullStopFullStopDigitOneKeyword_2; }
+
+		//"1..*"
+		public Keyword getDigitOneFullStopFullStopAsteriskKeyword_3() { return cDigitOneFullStopFullStopAsteriskKeyword_3; }
+
+		//"*..*"
+		public Keyword getAsteriskFullStopFullStopAsteriskKeyword_4() { return cAsteriskFullStopFullStopAsteriskKeyword_4; }
+
+		//"*"
+		public Keyword getAsteriskKeyword_5() { return cAsteriskKeyword_5; }
+	}
+
+	public class RelationTypeElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "RelationType");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Keyword cCompositionKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
+		private final Keyword cAssociationKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
+		
+		//RelationType:
+		//	"composition" | "association";
+		public ParserRule getRule() { return rule; }
+
+		//"composition" | "association"
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//"composition"
+		public Keyword getCompositionKeyword_0() { return cCompositionKeyword_0; }
+
+		//"association"
+		public Keyword getAssociationKeyword_1() { return cAssociationKeyword_1; }
+	}
+
 	public class EStringElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "EString");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
@@ -708,6 +838,9 @@ public class ExtensionGrammarAccess extends AbstractGrammarElementFinder {
 	private final FilterClassElements pFilterClass;
 	private final AddConstraintElements pAddConstraint;
 	private final FilterConstraintElements pFilterConstraint;
+	private final AddReferenceElements pAddReference;
+	private final CardinalityElements pCardinality;
+	private final RelationTypeElements pRelationType;
 	private final EStringElements pEString;
 	
 	private final Grammar grammar;
@@ -735,6 +868,9 @@ public class ExtensionGrammarAccess extends AbstractGrammarElementFinder {
 		this.pFilterClass = new FilterClassElements();
 		this.pAddConstraint = new AddConstraintElements();
 		this.pFilterConstraint = new FilterConstraintElements();
+		this.pAddReference = new AddReferenceElements();
+		this.pCardinality = new CardinalityElements();
+		this.pRelationType = new RelationTypeElements();
 		this.pEString = new EStringElements();
 	}
 	
@@ -852,7 +988,7 @@ public class ExtensionGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ModifyOperator:
-	//	AddProperty | ModifyProperty | FilterProperty | AddConstraint | FilterConstraint;
+	//	AddProperty | AddReference | ModifyProperty | FilterProperty | AddConstraint | FilterConstraint;
 	public ModifyOperatorElements getModifyOperatorAccess() {
 		return pModifyOperator;
 	}
@@ -935,6 +1071,38 @@ public class ExtensionGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getFilterConstraintRule() {
 		return getFilterConstraintAccess().getRule();
+	}
+
+	////10- Add reference: add reference refB type ClassB
+	//AddReference:
+	//	"add reference" property=ID "type" prefix+=[Prefix] "." class+=ID cardinality+=Cardinality?
+	//	relationType+=RelationType?;
+	public AddReferenceElements getAddReferenceAccess() {
+		return pAddReference;
+	}
+	
+	public ParserRule getAddReferenceRule() {
+		return getAddReferenceAccess().getRule();
+	}
+
+	//Cardinality:
+	//	"*..1" | "0..1" | "1..1" | "1..*" | "*..*" | "*";
+	public CardinalityElements getCardinalityAccess() {
+		return pCardinality;
+	}
+	
+	public ParserRule getCardinalityRule() {
+		return getCardinalityAccess().getRule();
+	}
+
+	//RelationType:
+	//	"composition" | "association";
+	public RelationTypeElements getRelationTypeAccess() {
+		return pRelationType;
+	}
+	
+	public ParserRule getRelationTypeRule() {
+		return getRelationTypeAccess().getRule();
 	}
 
 	//EString returns ecore::EString:

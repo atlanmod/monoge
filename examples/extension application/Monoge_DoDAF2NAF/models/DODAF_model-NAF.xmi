@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ASCII"?>
+<Extended_Metamodel:DODAF
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:Extended_Metamodel="http://Extended_Metamodel/1.0"
+    xsi:schemaLocation="http://Extended_Metamodel/1.0">
+  <systemFunctionSymbols
+      name="SFS1"
+      FunctionType="on"/>
+  <systemFunctionSymbols
+      name="SFS2"
+      FunctionType="off"/>
+  <dataFlowSymbols
+      name="DFS1"
+      source="//@systemFunctionSymbols.0"
+      target="//@systemFunctionSymbols.0"/>
+  <dataFlowSymbols
+      name="DFS2"
+      source="//@systemFunctionSymbols.0"
+      target="//@systemFunctionSymbols.1"/>
+</Extended_Metamodel:DODAF>
