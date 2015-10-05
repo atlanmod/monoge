@@ -10,7 +10,7 @@
     <virtualLinks xsi:type="virtualLinks:Association" name="ModifyProperty" upperBound="1" associationTypeName="ModifyProperty" sourceElement="/6" sourceAttribute="propertyC" targetAttribute="attribute:&quot;name&quot;value:&quot;propertyC2&quot;"/>
     <virtualLinks xsi:type="virtualLinks:Association" name="FilterConstraint" upperBound="1" associationTypeName="FilterConstraint" sourceElement="/7" sourceAttribute="constraint2"/>
     <virtualLinks xsi:type="virtualLinks:Association" name="FilterProperty" upperBound="1" associationTypeName="FilterProperty" sourceElement="/8" sourceAttribute="propertyB" targetAttribute=""/>
-    <virtualLinks xsi:type="virtualLinks:Association" name="FilterReference" upperBound="1" associationTypeName="FilterReference" sourceElement="/9" sourceAttribute="refA" targetAttribute=""/>
+    <virtualLinks xsi:type="virtualLinks:Association" name="FilterProperty" upperBound="1" associationTypeName="FilterProperty" sourceElement="/9" sourceAttribute="refA" targetAttribute=""/>
   </virtualLinks:VirtualLinks>
   <virtualLinks:LinkedElement elementRef="//C" modelRef="http://Original_Metamodel/1.0" name="C"/>
   <virtualLinks:LinkedElement elementRef="//D" modelRef="http://Original_Metamodel/1.0" name="D"/>

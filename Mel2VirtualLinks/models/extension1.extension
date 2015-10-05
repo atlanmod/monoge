@@ -5,7 +5,7 @@ define extension1 extending UML:uml, BPMN:bpmn{
 	modify class uml.A {
 		add property propertyA type String
 		add constraint constraint "one e1"
-		add reference refB type uml.B * composition
+		add property refB type uml.B * composition
 	}
 	modify class bpmn.C{
 		modify property propertyC attribute="name", value="propertyC2"
@@ -13,7 +13,7 @@ define extension1 extending UML:uml, BPMN:bpmn{
 	}
 	modify class uml.B{
 		filter property propertyB
-		filter reference refA
+		filter property refA
 	} 
 	filter class uml.D
 }

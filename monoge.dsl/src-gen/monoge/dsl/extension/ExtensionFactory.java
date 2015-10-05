@@ -113,6 +113,15 @@ public interface ExtensionFactory extends EFactory
   AddProperty createAddProperty();
 
   /**
+   * Returns a new object of class '<em>Type</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Type</em>'.
+   * @generated
+   */
+  Type createType();
+
+  /**
    * Returns a new object of class '<em>Modify Property</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -165,24 +174,6 @@ public interface ExtensionFactory extends EFactory
    * @generated
    */
   FilterConstraint createFilterConstraint();
-
-  /**
-   * Returns a new object of class '<em>Add Reference</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Add Reference</em>'.
-   * @generated
-   */
-  AddReference createAddReference();
-
-  /**
-   * Returns a new object of class '<em>Filter Reference</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Filter Reference</em>'.
-   * @generated
-   */
-  FilterReference createFilterReference();
 
   /**
    * Returns the package supported by this factory.

@@ -609,7 +609,7 @@ public class Viewtype extends ResourceImpl {
 				for(int i=0; i<classB.getEStructuralFeatures().size(); i++){
 					if(classB.getEStructuralFeatures().get(i).getName().compareTo(filteredProperty)==0){
 						System.out.println("Filter property ");
-						EStructuralFeature theAtt = classB.getEAllStructuralFeatures().get(i+1);
+						EStructuralFeature theAtt = classB.getEAllStructuralFeatures().get(i);
 						classB.getEStructuralFeatures().remove(theAtt);
 					}
 				}

@@ -2,14 +2,25 @@
  */
 package monoge.dsl.extension.impl;
 
+import java.util.Collection;
+
 import monoge.dsl.extension.AddProperty;
 import monoge.dsl.extension.ExtensionPackage;
+import monoge.dsl.extension.Type;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.eclipse.emf.ecore.util.EDataTypeEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,6 +31,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link monoge.dsl.extension.impl.AddPropertyImpl#getProperty <em>Property</em>}</li>
  *   <li>{@link monoge.dsl.extension.impl.AddPropertyImpl#getType <em>Type</em>}</li>
+ *   <li>{@link monoge.dsl.extension.impl.AddPropertyImpl#getCardinality <em>Cardinality</em>}</li>
+ *   <li>{@link monoge.dsl.extension.impl.AddPropertyImpl#getRelationType <em>Relation Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -48,24 +61,34 @@ public class AddPropertyImpl extends ModifyOperatorImpl implements AddProperty
   protected String property = PROPERTY_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getType() <em>Type</em>}' attribute.
+   * The cached value of the '{@link #getType() <em>Type</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getType()
    * @generated
    * @ordered
    */
-  protected static final String TYPE_EDEFAULT = null;
+  protected EList<Type> type;
 
   /**
-   * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
+   * The cached value of the '{@link #getCardinality() <em>Cardinality</em>}' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getType()
+   * @see #getCardinality()
    * @generated
    * @ordered
    */
-  protected String type = TYPE_EDEFAULT;
+  protected EList<String> cardinality;
+
+  /**
+   * The cached value of the '{@link #getRelationType() <em>Relation Type</em>}' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getRelationType()
+   * @generated
+   * @ordered
+   */
+  protected EList<String> relationType;
 
   /**
    * <!-- begin-user-doc -->
@@ -116,8 +139,12 @@ public class AddPropertyImpl extends ModifyOperatorImpl implements AddProperty
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getType()
+  public EList<Type> getType()
   {
+    if (type == null)
+    {
+      type = new EObjectContainmentEList<Type>(Type.class, this, ExtensionPackage.ADD_PROPERTY__TYPE);
+    }
     return type;
   }
 
@@ -126,12 +153,43 @@ public class AddPropertyImpl extends ModifyOperatorImpl implements AddProperty
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setType(String newType)
+  public EList<String> getCardinality()
   {
-    String oldType = type;
-    type = newType;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ExtensionPackage.ADD_PROPERTY__TYPE, oldType, type));
+    if (cardinality == null)
+    {
+      cardinality = new EDataTypeEList<String>(String.class, this, ExtensionPackage.ADD_PROPERTY__CARDINALITY);
+    }
+    return cardinality;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<String> getRelationType()
+  {
+    if (relationType == null)
+    {
+      relationType = new EDataTypeEList<String>(String.class, this, ExtensionPackage.ADD_PROPERTY__RELATION_TYPE);
+    }
+    return relationType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case ExtensionPackage.ADD_PROPERTY__TYPE:
+        return ((InternalEList<?>)getType()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -148,6 +206,10 @@ public class AddPropertyImpl extends ModifyOperatorImpl implements AddProperty
         return getProperty();
       case ExtensionPackage.ADD_PROPERTY__TYPE:
         return getType();
+      case ExtensionPackage.ADD_PROPERTY__CARDINALITY:
+        return getCardinality();
+      case ExtensionPackage.ADD_PROPERTY__RELATION_TYPE:
+        return getRelationType();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -157,6 +219,7 @@ public class AddPropertyImpl extends ModifyOperatorImpl implements AddProperty
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
@@ -166,7 +229,16 @@ public class AddPropertyImpl extends ModifyOperatorImpl implements AddProperty
         setProperty((String)newValue);
         return;
       case ExtensionPackage.ADD_PROPERTY__TYPE:
-        setType((String)newValue);
+        getType().clear();
+        getType().addAll((Collection<? extends Type>)newValue);
+        return;
+      case ExtensionPackage.ADD_PROPERTY__CARDINALITY:
+        getCardinality().clear();
+        getCardinality().addAll((Collection<? extends String>)newValue);
+        return;
+      case ExtensionPackage.ADD_PROPERTY__RELATION_TYPE:
+        getRelationType().clear();
+        getRelationType().addAll((Collection<? extends String>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -186,7 +258,13 @@ public class AddPropertyImpl extends ModifyOperatorImpl implements AddProperty
         setProperty(PROPERTY_EDEFAULT);
         return;
       case ExtensionPackage.ADD_PROPERTY__TYPE:
-        setType(TYPE_EDEFAULT);
+        getType().clear();
+        return;
+      case ExtensionPackage.ADD_PROPERTY__CARDINALITY:
+        getCardinality().clear();
+        return;
+      case ExtensionPackage.ADD_PROPERTY__RELATION_TYPE:
+        getRelationType().clear();
         return;
     }
     super.eUnset(featureID);
@@ -205,7 +283,11 @@ public class AddPropertyImpl extends ModifyOperatorImpl implements AddProperty
       case ExtensionPackage.ADD_PROPERTY__PROPERTY:
         return PROPERTY_EDEFAULT == null ? property != null : !PROPERTY_EDEFAULT.equals(property);
       case ExtensionPackage.ADD_PROPERTY__TYPE:
-        return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
+        return type != null && !type.isEmpty();
+      case ExtensionPackage.ADD_PROPERTY__CARDINALITY:
+        return cardinality != null && !cardinality.isEmpty();
+      case ExtensionPackage.ADD_PROPERTY__RELATION_TYPE:
+        return relationType != null && !relationType.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -223,8 +305,10 @@ public class AddPropertyImpl extends ModifyOperatorImpl implements AddProperty
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (property: ");
     result.append(property);
-    result.append(", type: ");
-    result.append(type);
+    result.append(", cardinality: ");
+    result.append(cardinality);
+    result.append(", relationType: ");
+    result.append(relationType);
     result.append(')');
     return result.toString();
   }

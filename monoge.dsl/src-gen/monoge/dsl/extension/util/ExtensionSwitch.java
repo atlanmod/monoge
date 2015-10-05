@@ -147,6 +147,13 @@ public class ExtensionSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case ExtensionPackage.TYPE:
+      {
+        Type type = (Type)theEObject;
+        T result = caseType(type);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case ExtensionPackage.MODIFY_PROPERTY:
       {
         ModifyProperty modifyProperty = (ModifyProperty)theEObject;
@@ -191,22 +198,6 @@ public class ExtensionSwitch<T> extends Switch<T>
         FilterConstraint filterConstraint = (FilterConstraint)theEObject;
         T result = caseFilterConstraint(filterConstraint);
         if (result == null) result = caseModifyOperator(filterConstraint);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case ExtensionPackage.ADD_REFERENCE:
-      {
-        AddReference addReference = (AddReference)theEObject;
-        T result = caseAddReference(addReference);
-        if (result == null) result = caseModifyOperator(addReference);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case ExtensionPackage.FILTER_REFERENCE:
-      {
-        FilterReference filterReference = (FilterReference)theEObject;
-        T result = caseFilterReference(filterReference);
-        if (result == null) result = caseModifyOperator(filterReference);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -375,6 +366,22 @@ public class ExtensionSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Type</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Type</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseType(Type object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Modify Property</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -466,38 +473,6 @@ public class ExtensionSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseFilterConstraint(FilterConstraint object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Add Reference</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Add Reference</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseAddReference(AddReference object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Filter Reference</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Filter Reference</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseFilterReference(FilterReference object)
   {
     return null;
   }

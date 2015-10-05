@@ -26,21 +26,42 @@ rule Model2VirtualLinks {
 				--for each operator create an Association
 				for(iterator2 in s.extensions.at(thisModule.indexExtension).modifyOperators){
 					--switch type of Extension
-					--AddProperty
+					--AddProperty and AddReference
 					if(s.extensions.at(thisModule.indexExtension).modifyOperators.at(thisModule.indexOperator).oclIsTypeOf(Extension!AddProperty)){
-						t.virtualLinks <- t.virtualLinks->append(thisModule.AddProperty2Association(s.extensions.at(thisModule.indexExtension).modifyOperators.at(thisModule.indexOperator)));
-					--AddReference
-					}else if(s.extensions.at(thisModule.indexExtension).modifyOperators.at(thisModule.indexOperator).oclIsTypeOf(Extension!AddReference)){ 
-						t.virtualLinks <- t.virtualLinks->append(thisModule.AddReference2Association(s.extensions.at(thisModule.indexExtension).modifyOperators.at(thisModule.indexOperator)));
+						--AddProperty: if the type is primitive
+						if(s.extensions.at(thisModule.indexExtension).modifyOperators.at(thisModule.indexOperator).type->first().type->first() = 'String'
+							or s.extensions.at(thisModule.indexExtension).modifyOperators.at(thisModule.indexOperator).type->first().type->first() = 'string'
+							or s.extensions.at(thisModule.indexExtension).modifyOperators.at(thisModule.indexOperator).type->first().type->first() = 'Boolean'
+							or s.extensions.at(thisModule.indexExtension).modifyOperators.at(thisModule.indexOperator).type->first().type->first() = 'boolean'
+							or s.extensions.at(thisModule.indexExtension).modifyOperators.at(thisModule.indexOperator).type->first().type->first() = 'Integer'
+							or s.extensions.at(thisModule.indexExtension).modifyOperators.at(thisModule.indexOperator).type->first().type->first() = 'integer'
+							or s.extensions.at(thisModule.indexExtension).modifyOperators.at(thisModule.indexOperator).type->first().type->first() = 'Double'
+							or s.extensions.at(thisModule.indexExtension).modifyOperators.at(thisModule.indexOperator).type->first().type->first() = 'double'
+							or s.extensions.at(thisModule.indexExtension).modifyOperators.at(thisModule.indexOperator).type->first().type->first() = 'Date'
+							or s.extensions.at(thisModule.indexExtension).modifyOperators.at(thisModule.indexOperator).type->first().type->first() = 'date'
+							or s.extensions.at(thisModule.indexExtension).modifyOperators.at(thisModule.indexOperator).type->first().type->first() = 'Float'
+							or s.extensions.at(thisModule.indexExtension).modifyOperators.at(thisModule.indexOperator).type->first().type->first() = 'float'
+							or s.extensions.at(thisModule.indexExtension).modifyOperators.at(thisModule.indexOperator).type->first().type->first() = 'Long'
+							or s.extensions.at(thisModule.indexExtension).modifyOperators.at(thisModule.indexOperator).type->first().type->first() = 'long'
+							or s.extensions.at(thisModule.indexExtension).modifyOperators.at(thisModule.indexOperator).type->first().type->first() = 'Short'
+							or s.extensions.at(thisModule.indexExtension).modifyOperators.at(thisModule.indexOperator).type->first().type->first() = 'short'
+							or s.extensions.at(thisModule.indexExtension).modifyOperators.at(thisModule.indexOperator).type->first().type->first() = 'Byte'
+							or s.extensions.at(thisModule.indexExtension).modifyOperators.at(thisModule.indexOperator).type->first().type->first() = 'byte'
+							){
+							t.virtualLinks <- t.virtualLinks->append(thisModule.AddProperty2Association(s.extensions.at(thisModule.indexExtension).modifyOperators.at(thisModule.indexOperator)));
+						}else{ --AddReference: type is not primitive
+							t.virtualLinks <- t.virtualLinks->append(thisModule.AddReference2Association(s.extensions.at(thisModule.indexExtension).modifyOperators.at(thisModule.indexOperator)));
+						}	
 					--ModifyProperty
 					}else if(s.extensions.at(thisModule.indexExtension).modifyOperators.at(thisModule.indexOperator).oclIsTypeOf(Extension!ModifyProperty)){ 
 						t.virtualLinks <- t.virtualLinks->append(thisModule.ModifyProperty2Association(s.extensions.at(thisModule.indexExtension).modifyOperators.at(thisModule.indexOperator)));
 					--FilterProperty
 					}else if(s.extensions.at(thisModule.indexExtension).modifyOperators.at(thisModule.indexOperator).oclIsTypeOf(Extension!FilterProperty)){ 
 						t.virtualLinks <- t.virtualLinks->append(thisModule.FilterProperty2Association(s.extensions.at(thisModule.indexExtension).modifyOperators.at(thisModule.indexOperator)));
-					--FilterReference
-					}else if(s.extensions.at(thisModule.indexExtension).modifyOperators.at(thisModule.indexOperator).oclIsTypeOf(Extension!FilterReference)){ 
-						t.virtualLinks <- t.virtualLinks->append(thisModule.FilterReference2Association(s.extensions.at(thisModule.indexExtension).modifyOperators.at(thisModule.indexOperator)));
+					--FilterReference: type is primitive
+					
+--					}else if(s.extensions.at(thisModule.indexExtension).modifyOperators.at(thisModule.indexOperator).oclIsTypeOf(Extension!FilterReference)){ 
+--						t.virtualLinks <- t.virtualLinks->append(thisModule.FilterReference2Association(s.extensions.at(thisModule.indexExtension).modifyOperators.at(thisModule.indexOperator)));
 					--AddConstraint
 					}else if(s.extensions.at(thisModule.indexExtension).modifyOperators.at(thisModule.indexOperator).oclIsTypeOf(Extension!AddConstraint)){ 
 						t.virtualLinks <- t.virtualLinks->append(thisModule.AddConstraint2Association(s.extensions.at(thisModule.indexExtension).modifyOperators.at(thisModule.indexOperator)));
@@ -69,13 +90,16 @@ lazy rule AddProperty2Association{
 		--sourceElement <- le,
 		targetElements <- le,
 		targetAttribute <- s.property,
-		sourceAttribute <- s.type
+		sourceAttribute <- s.type->first().type->first()
     ),
 	le : VirtualLinks!LinkedElement(
 		elementRef <- '//' + s.refImmediateComposite().class,
 		modelRef <- 'http://Original_Metamodel/1.0',
 		name <- s.refImmediateComposite().class
 	)
+	do{
+		'AddProperty2Association'.println();
+	}
 }
 lazy rule AddReference2Association{
   from 
@@ -90,7 +114,7 @@ lazy rule AddReference2Association{
 		--sourceElement <- le,
 		targetElements <- le,
 		targetAttribute <- s.property + ';' + s.relationType->first(),
-		sourceAttribute <- s.class
+		sourceAttribute <- s.type->first().class
     ),
 	le : VirtualLinks!LinkedElement(
 		elementRef <- '//' + s.refImmediateComposite().class,

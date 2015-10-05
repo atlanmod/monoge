@@ -4,13 +4,11 @@ import com.google.inject.Inject;
 import com.google.inject.Provider;
 import monoge.dsl.extension.AddConstraint;
 import monoge.dsl.extension.AddProperty;
-import monoge.dsl.extension.AddReference;
 import monoge.dsl.extension.Create;
 import monoge.dsl.extension.ExtensionPackage;
 import monoge.dsl.extension.FilterClass;
 import monoge.dsl.extension.FilterConstraint;
 import monoge.dsl.extension.FilterProperty;
-import monoge.dsl.extension.FilterReference;
 import monoge.dsl.extension.Generalize;
 import monoge.dsl.extension.Metamodel;
 import monoge.dsl.extension.Model;
@@ -18,6 +16,7 @@ import monoge.dsl.extension.ModifyClass;
 import monoge.dsl.extension.ModifyProperty;
 import monoge.dsl.extension.Prefix;
 import monoge.dsl.extension.Refine;
+import monoge.dsl.extension.Type;
 import monoge.dsl.extension.ValueAssignment;
 import monoge.dsl.services.ExtensionGrammarAccess;
 import org.eclipse.emf.ecore.EObject;
@@ -54,13 +53,6 @@ public class ExtensionSemanticSequencer extends AbstractDelegatingSemanticSequen
 					return; 
 				}
 				else break;
-			case ExtensionPackage.ADD_REFERENCE:
-				if(context == grammarAccess.getAddReferenceRule() ||
-				   context == grammarAccess.getModifyOperatorRule()) {
-					sequence_AddReference(context, (AddReference) semanticObject); 
-					return; 
-				}
-				else break;
 			case ExtensionPackage.CREATE:
 				if(context == grammarAccess.getCreateRule() ||
 				   context == grammarAccess.getExtensionRule()) {
@@ -86,13 +78,6 @@ public class ExtensionSemanticSequencer extends AbstractDelegatingSemanticSequen
 				if(context == grammarAccess.getFilterPropertyRule() ||
 				   context == grammarAccess.getModifyOperatorRule()) {
 					sequence_FilterProperty(context, (FilterProperty) semanticObject); 
-					return; 
-				}
-				else break;
-			case ExtensionPackage.FILTER_REFERENCE:
-				if(context == grammarAccess.getFilterReferenceRule() ||
-				   context == grammarAccess.getModifyOperatorRule()) {
-					sequence_FilterReference(context, (FilterReference) semanticObject); 
 					return; 
 				}
 				else break;
@@ -142,6 +127,12 @@ public class ExtensionSemanticSequencer extends AbstractDelegatingSemanticSequen
 					return; 
 				}
 				else break;
+			case ExtensionPackage.TYPE:
+				if(context == grammarAccess.getTypeRule()) {
+					sequence_Type(context, (Type) semanticObject); 
+					return; 
+				}
+				else break;
 			case ExtensionPackage.VALUE_ASSIGNMENT:
 				if(context == grammarAccess.getValueAssignmentRule()) {
 					sequence_ValueAssignment(context, (ValueAssignment) semanticObject); 
@@ -173,28 +164,9 @@ public class ExtensionSemanticSequencer extends AbstractDelegatingSemanticSequen
 	
 	/**
 	 * Constraint:
-	 *     (property=ID type=ID)
+	 *     (property=ID type+=Type cardinality+=Cardinality? relationType+=RelationType?)
 	 */
 	protected void sequence_AddProperty(EObject context, AddProperty semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, ExtensionPackage.Literals.ADD_PROPERTY__PROPERTY) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ExtensionPackage.Literals.ADD_PROPERTY__PROPERTY));
-			if(transientValues.isValueTransient(semanticObject, ExtensionPackage.Literals.ADD_PROPERTY__TYPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ExtensionPackage.Literals.ADD_PROPERTY__TYPE));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getAddPropertyAccess().getPropertyIDTerminalRuleCall_1_0(), semanticObject.getProperty());
-		feeder.accept(grammarAccess.getAddPropertyAccess().getTypeIDTerminalRuleCall_3_0(), semanticObject.getType());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (property=ID prefix+=[Prefix|ID] class+=ID cardinality+=Cardinality? relationType+=RelationType?)
-	 */
-	protected void sequence_AddReference(EObject context, AddReference semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -262,22 +234,6 @@ public class ExtensionSemanticSequencer extends AbstractDelegatingSemanticSequen
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
 		feeder.accept(grammarAccess.getFilterPropertyAccess().getPropertyIDTerminalRuleCall_1_0(), semanticObject.getProperty());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     property=ID
-	 */
-	protected void sequence_FilterReference(EObject context, FilterReference semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, ExtensionPackage.Literals.FILTER_REFERENCE__PROPERTY) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ExtensionPackage.Literals.FILTER_REFERENCE__PROPERTY));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getFilterReferenceAccess().getPropertyIDTerminalRuleCall_1_0(), semanticObject.getProperty());
 		feeder.finish();
 	}
 	
@@ -369,6 +325,15 @@ public class ExtensionSemanticSequencer extends AbstractDelegatingSemanticSequen
 		feeder.accept(grammarAccess.getRefineAccess().getPrefixPrefixIDTerminalRuleCall_3_0_1(), semanticObject.getPrefix());
 		feeder.accept(grammarAccess.getRefineAccess().getClassOriginalIDTerminalRuleCall_5_0(), semanticObject.getClassOriginal());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (type+=ID | (prefix+=[Prefix|ID] class+=ID))
+	 */
+	protected void sequence_Type(EObject context, Type semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

@@ -4,6 +4,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="A"/>
   <eClassifiers xsi:type="ecore:EClass" name="B">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="propertyB" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="refA" eType="#//A"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="C">
     <eAnnotations source="constraint2">

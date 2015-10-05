@@ -74,14 +74,13 @@ public class ExtensionFactoryImpl extends EFactoryImpl implements ExtensionFacto
       case ExtensionPackage.MODIFY_CLASS: return createModifyClass();
       case ExtensionPackage.MODIFY_OPERATOR: return createModifyOperator();
       case ExtensionPackage.ADD_PROPERTY: return createAddProperty();
+      case ExtensionPackage.TYPE: return createType();
       case ExtensionPackage.MODIFY_PROPERTY: return createModifyProperty();
       case ExtensionPackage.VALUE_ASSIGNMENT: return createValueAssignment();
       case ExtensionPackage.FILTER_PROPERTY: return createFilterProperty();
       case ExtensionPackage.FILTER_CLASS: return createFilterClass();
       case ExtensionPackage.ADD_CONSTRAINT: return createAddConstraint();
       case ExtensionPackage.FILTER_CONSTRAINT: return createFilterConstraint();
-      case ExtensionPackage.ADD_REFERENCE: return createAddReference();
-      case ExtensionPackage.FILTER_REFERENCE: return createFilterReference();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -202,6 +201,17 @@ public class ExtensionFactoryImpl extends EFactoryImpl implements ExtensionFacto
    * <!-- end-user-doc -->
    * @generated
    */
+  public Type createType()
+  {
+    TypeImpl type = new TypeImpl();
+    return type;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public ModifyProperty createModifyProperty()
   {
     ModifyPropertyImpl modifyProperty = new ModifyPropertyImpl();
@@ -261,28 +271,6 @@ public class ExtensionFactoryImpl extends EFactoryImpl implements ExtensionFacto
   {
     FilterConstraintImpl filterConstraint = new FilterConstraintImpl();
     return filterConstraint;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public AddReference createAddReference()
-  {
-    AddReferenceImpl addReference = new AddReferenceImpl();
-    return addReference;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public FilterReference createFilterReference()
-  {
-    FilterReferenceImpl filterReference = new FilterReferenceImpl();
-    return filterReference;
   }
 
   /**

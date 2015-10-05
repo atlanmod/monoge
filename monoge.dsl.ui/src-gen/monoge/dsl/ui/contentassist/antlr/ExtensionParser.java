@@ -39,6 +39,7 @@ public class ExtensionParser extends AbstractContentAssistParser {
 				{
 					put(grammarAccess.getExtensionAccess().getAlternatives(), "rule__Extension__Alternatives");
 					put(grammarAccess.getModifyOperatorAccess().getAlternatives(), "rule__ModifyOperator__Alternatives");
+					put(grammarAccess.getTypeAccess().getAlternatives(), "rule__Type__Alternatives");
 					put(grammarAccess.getCardinalityAccess().getAlternatives(), "rule__Cardinality__Alternatives");
 					put(grammarAccess.getRelationTypeAccess().getAlternatives(), "rule__RelationType__Alternatives");
 					put(grammarAccess.getEStringAccess().getAlternatives(), "rule__EString__Alternatives");
@@ -50,6 +51,7 @@ public class ExtensionParser extends AbstractContentAssistParser {
 					put(grammarAccess.getGeneralizeAccess().getGroup_6(), "rule__Generalize__Group_6__0");
 					put(grammarAccess.getModifyClassAccess().getGroup(), "rule__ModifyClass__Group__0");
 					put(grammarAccess.getAddPropertyAccess().getGroup(), "rule__AddProperty__Group__0");
+					put(grammarAccess.getTypeAccess().getGroup_1(), "rule__Type__Group_1__0");
 					put(grammarAccess.getModifyPropertyAccess().getGroup(), "rule__ModifyProperty__Group__0");
 					put(grammarAccess.getModifyPropertyAccess().getGroup_3(), "rule__ModifyProperty__Group_3__0");
 					put(grammarAccess.getValueAssignmentAccess().getGroup(), "rule__ValueAssignment__Group__0");
@@ -57,8 +59,6 @@ public class ExtensionParser extends AbstractContentAssistParser {
 					put(grammarAccess.getFilterClassAccess().getGroup(), "rule__FilterClass__Group__0");
 					put(grammarAccess.getAddConstraintAccess().getGroup(), "rule__AddConstraint__Group__0");
 					put(grammarAccess.getFilterConstraintAccess().getGroup(), "rule__FilterConstraint__Group__0");
-					put(grammarAccess.getAddReferenceAccess().getGroup(), "rule__AddReference__Group__0");
-					put(grammarAccess.getFilterReferenceAccess().getGroup(), "rule__FilterReference__Group__0");
 					put(grammarAccess.getModelAccess().getExtensionNameAssignment_1(), "rule__Model__ExtensionNameAssignment_1");
 					put(grammarAccess.getModelAccess().getMetamodelAssignment_3(), "rule__Model__MetamodelAssignment_3");
 					put(grammarAccess.getModelAccess().getPrefixAssignment_5(), "rule__Model__PrefixAssignment_5");
@@ -81,6 +81,11 @@ public class ExtensionParser extends AbstractContentAssistParser {
 					put(grammarAccess.getModifyClassAccess().getModifyOperatorsAssignment_5(), "rule__ModifyClass__ModifyOperatorsAssignment_5");
 					put(grammarAccess.getAddPropertyAccess().getPropertyAssignment_1(), "rule__AddProperty__PropertyAssignment_1");
 					put(grammarAccess.getAddPropertyAccess().getTypeAssignment_3(), "rule__AddProperty__TypeAssignment_3");
+					put(grammarAccess.getAddPropertyAccess().getCardinalityAssignment_4(), "rule__AddProperty__CardinalityAssignment_4");
+					put(grammarAccess.getAddPropertyAccess().getRelationTypeAssignment_5(), "rule__AddProperty__RelationTypeAssignment_5");
+					put(grammarAccess.getTypeAccess().getTypeAssignment_0(), "rule__Type__TypeAssignment_0");
+					put(grammarAccess.getTypeAccess().getPrefixAssignment_1_0(), "rule__Type__PrefixAssignment_1_0");
+					put(grammarAccess.getTypeAccess().getClassAssignment_1_2(), "rule__Type__ClassAssignment_1_2");
 					put(grammarAccess.getModifyPropertyAccess().getPropertyAssignment_1(), "rule__ModifyProperty__PropertyAssignment_1");
 					put(grammarAccess.getModifyPropertyAccess().getValueAssignment_2(), "rule__ModifyProperty__ValueAssignment_2");
 					put(grammarAccess.getModifyPropertyAccess().getValueAssignment_3_1(), "rule__ModifyProperty__ValueAssignment_3_1");
@@ -92,12 +97,6 @@ public class ExtensionParser extends AbstractContentAssistParser {
 					put(grammarAccess.getAddConstraintAccess().getConstraintAssignment_1(), "rule__AddConstraint__ConstraintAssignment_1");
 					put(grammarAccess.getAddConstraintAccess().getValueAssignment_2(), "rule__AddConstraint__ValueAssignment_2");
 					put(grammarAccess.getFilterConstraintAccess().getConstraintAssignment_1(), "rule__FilterConstraint__ConstraintAssignment_1");
-					put(grammarAccess.getAddReferenceAccess().getPropertyAssignment_1(), "rule__AddReference__PropertyAssignment_1");
-					put(grammarAccess.getAddReferenceAccess().getPrefixAssignment_3(), "rule__AddReference__PrefixAssignment_3");
-					put(grammarAccess.getAddReferenceAccess().getClassAssignment_5(), "rule__AddReference__ClassAssignment_5");
-					put(grammarAccess.getAddReferenceAccess().getCardinalityAssignment_6(), "rule__AddReference__CardinalityAssignment_6");
-					put(grammarAccess.getAddReferenceAccess().getRelationTypeAssignment_7(), "rule__AddReference__RelationTypeAssignment_7");
-					put(grammarAccess.getFilterReferenceAccess().getPropertyAssignment_1(), "rule__FilterReference__PropertyAssignment_1");
 				}
 			};
 		}

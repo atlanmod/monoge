@@ -15,11 +15,17 @@
   </extensions>
   <extensions xsi:type="extension:ModifyClass" class="A">
     <prefix href="extension1.extension#|3"/>
-    <modifyOperators xsi:type="extension:AddProperty" property="propertyA" type="String"/>
+    <modifyOperators xsi:type="extension:AddProperty" property="propertyA">
+      <type>
+        <type>String</type>
+      </type>
+    </modifyOperators>
     <modifyOperators xsi:type="extension:AddConstraint" constraint="constraint" value="&quot;one e1&quot;"/>
-    <modifyOperators xsi:type="extension:AddReference" property="refB">
-      <prefix href="extension1.extension#|4"/>
-      <class>B</class>
+    <modifyOperators xsi:type="extension:AddProperty" property="refB">
+      <type>
+        <prefix href="extension1.extension#|4"/>
+        <class>B</class>
+      </type>
       <cardinality>*</cardinality>
       <relationType>composition</relationType>
     </modifyOperators>
@@ -35,7 +41,7 @@
   <extensions xsi:type="extension:ModifyClass" class="B">
     <prefix href="extension1.extension#|6"/>
     <modifyOperators xsi:type="extension:FilterProperty" property="propertyB"/>
-    <modifyOperators xsi:type="extension:FilterReference" property="refA"/>
+    <modifyOperators xsi:type="extension:FilterProperty" property="refA"/>
   </extensions>
   <extensions xsi:type="extension:FilterClass" class="D">
     <prefix href="extension1.extension#|7"/>
