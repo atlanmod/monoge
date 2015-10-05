@@ -773,6 +773,16 @@ ruleModifyOperator returns [EObject current=null]
         $current = $this_FilterConstraint_5.current; 
         afterParserOrEnumRuleCall();
     }
+
+    |
+    { 
+        newCompositeNode(grammarAccess.getModifyOperatorAccess().getFilterReferenceParserRuleCall_6()); 
+    }
+    this_FilterReference_6=ruleFilterReference
+    { 
+        $current = $this_FilterReference_6.current; 
+        afterParserOrEnumRuleCall();
+    }
 )
 ;
 
@@ -1308,6 +1318,49 @@ ruleAddReference returns [EObject current=null]
 
 )
 )?)
+;
+
+
+
+
+
+// Entry rule entryRuleFilterReference
+entryRuleFilterReference returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getFilterReferenceRule()); }
+	 iv_ruleFilterReference=ruleFilterReference 
+	 { $current=$iv_ruleFilterReference.current; } 
+	 EOF 
+;
+
+// Rule FilterReference
+ruleFilterReference returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(	otherlv_0='filter reference' 
+    {
+    	newLeafNode(otherlv_0, grammarAccess.getFilterReferenceAccess().getFilterReferenceKeyword_0());
+    }
+(
+(
+		lv_property_1_0=RULE_ID
+		{
+			newLeafNode(lv_property_1_0, grammarAccess.getFilterReferenceAccess().getPropertyIDTerminalRuleCall_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getFilterReferenceRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"property",
+        		lv_property_1_0, 
+        		"ID");
+	    }
+
+)
+))
 ;
 
 

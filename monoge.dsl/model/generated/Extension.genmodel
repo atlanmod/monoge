@@ -72,5 +72,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Extension.ecore#//AddReference/cardinality"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Extension.ecore#//AddReference/relationType"/>
     </genClasses>
+    <genClasses ecoreClass="Extension.ecore#//FilterReference">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Extension.ecore#//FilterReference/property"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -10,6 +10,7 @@ import monoge.dsl.extension.ExtensionPackage;
 import monoge.dsl.extension.FilterClass;
 import monoge.dsl.extension.FilterConstraint;
 import monoge.dsl.extension.FilterProperty;
+import monoge.dsl.extension.FilterReference;
 import monoge.dsl.extension.Generalize;
 import monoge.dsl.extension.Metamodel;
 import monoge.dsl.extension.Model;
@@ -85,6 +86,13 @@ public class ExtensionSemanticSequencer extends AbstractDelegatingSemanticSequen
 				if(context == grammarAccess.getFilterPropertyRule() ||
 				   context == grammarAccess.getModifyOperatorRule()) {
 					sequence_FilterProperty(context, (FilterProperty) semanticObject); 
+					return; 
+				}
+				else break;
+			case ExtensionPackage.FILTER_REFERENCE:
+				if(context == grammarAccess.getFilterReferenceRule() ||
+				   context == grammarAccess.getModifyOperatorRule()) {
+					sequence_FilterReference(context, (FilterReference) semanticObject); 
 					return; 
 				}
 				else break;
@@ -254,6 +262,22 @@ public class ExtensionSemanticSequencer extends AbstractDelegatingSemanticSequen
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
 		feeder.accept(grammarAccess.getFilterPropertyAccess().getPropertyIDTerminalRuleCall_1_0(), semanticObject.getProperty());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     property=ID
+	 */
+	protected void sequence_FilterReference(EObject context, FilterReference semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, ExtensionPackage.Literals.FILTER_REFERENCE__PROPERTY) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ExtensionPackage.Literals.FILTER_REFERENCE__PROPERTY));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getFilterReferenceAccess().getPropertyIDTerminalRuleCall_1_0(), semanticObject.getProperty());
 		feeder.finish();
 	}
 	

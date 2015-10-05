@@ -38,6 +38,9 @@ rule Model2VirtualLinks {
 					--FilterProperty
 					}else if(s.extensions.at(thisModule.indexExtension).modifyOperators.at(thisModule.indexOperator).oclIsTypeOf(Extension!FilterProperty)){ 
 						t.virtualLinks <- t.virtualLinks->append(thisModule.FilterProperty2Association(s.extensions.at(thisModule.indexExtension).modifyOperators.at(thisModule.indexOperator)));
+					--FilterReference
+					}else if(s.extensions.at(thisModule.indexExtension).modifyOperators.at(thisModule.indexOperator).oclIsTypeOf(Extension!FilterReference)){ 
+						t.virtualLinks <- t.virtualLinks->append(thisModule.FilterReference2Association(s.extensions.at(thisModule.indexExtension).modifyOperators.at(thisModule.indexOperator)));
 					--AddConstraint
 					}else if(s.extensions.at(thisModule.indexExtension).modifyOperators.at(thisModule.indexOperator).oclIsTypeOf(Extension!AddConstraint)){ 
 						t.virtualLinks <- t.virtualLinks->append(thisModule.AddConstraint2Association(s.extensions.at(thisModule.indexExtension).modifyOperators.at(thisModule.indexOperator)));
@@ -153,6 +156,25 @@ lazy rule FilterProperty2Association{
    		name <- 'FilterProperty',
 		upperBound <- 1,
 		associationTypeName <- 'FilterProperty',
+		sourceElement <- le,
+		--targetElements <- le,
+		sourceAttribute <- s.property,
+		targetAttribute <- ''
+    ),
+	le : VirtualLinks!LinkedElement(
+		elementRef <- '//' + s.refImmediateComposite().class,
+		modelRef <- 'http://Original_Metamodel/1.0',
+		name <- s.refImmediateComposite().class
+	)
+}
+lazy rule FilterReference2Association{
+  from 
+  	s : Extension!FilterReference
+  to
+  	t : VirtualLinks!Association (
+   		name <- 'FilterReference',
+		upperBound <- 1,
+		associationTypeName <- 'FilterReference',
 		sourceElement <- le,
 		--targetElements <- le,
 		sourceAttribute <- s.property,

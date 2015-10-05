@@ -37,7 +37,7 @@ ModifyClass:
 	'}'
 ;
 ModifyOperator:
-	AddProperty | AddReference | ModifyProperty | FilterProperty | AddConstraint | FilterConstraint
+	AddProperty | AddReference | ModifyProperty | FilterProperty | AddConstraint | FilterConstraint | FilterReference
 ;
 //4- Add property: Alter Class classC Add propertyA [optional attributes]
 AddProperty:
@@ -69,6 +69,10 @@ FilterConstraint:
 //10- Add reference: add reference refB type ClassB
 AddReference:
 	'add reference' property=ID 'type' prefix+=[Prefix] '.' class+=ID (cardinality+=Cardinality)? (relationType+=RelationType)?
+;
+//11- Filter reference: filter reference refA
+FilterReference:
+	'filter reference' property=ID
 ;
 Cardinality:
 	'*..1' | '0..1' | '1..1' | '1..*' | '*..*' | '*'

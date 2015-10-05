@@ -19,6 +19,7 @@
 'filter class'=35
 'filter constraint'=37
 'filter property'=34
+'filter reference'=39
 'modify class'=29
 'modify property'=32
 'specializing'=26
@@ -61,3 +62,4 @@ T__35=35
 T__36=36
 T__37=37
 T__38=38
+T__39=39

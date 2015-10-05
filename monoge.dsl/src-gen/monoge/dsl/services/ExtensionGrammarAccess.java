@@ -406,12 +406,13 @@ public class ExtensionGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cFilterPropertyParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		private final RuleCall cAddConstraintParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
 		private final RuleCall cFilterConstraintParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
+		private final RuleCall cFilterReferenceParserRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
 		
 		//ModifyOperator:
-		//	AddProperty | AddReference | ModifyProperty | FilterProperty | AddConstraint | FilterConstraint;
+		//	AddProperty | AddReference | ModifyProperty | FilterProperty | AddConstraint | FilterConstraint | FilterReference;
 		public ParserRule getRule() { return rule; }
 
-		//AddProperty | AddReference | ModifyProperty | FilterProperty | AddConstraint | FilterConstraint
+		//AddProperty | AddReference | ModifyProperty | FilterProperty | AddConstraint | FilterConstraint | FilterReference
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//AddProperty
@@ -431,6 +432,9 @@ public class ExtensionGrammarAccess extends AbstractGrammarElementFinder {
 
 		//FilterConstraint
 		public RuleCall getFilterConstraintParserRuleCall_5() { return cFilterConstraintParserRuleCall_5; }
+
+		//FilterReference
+		public RuleCall getFilterReferenceParserRuleCall_6() { return cFilterReferenceParserRuleCall_6; }
 	}
 
 	public class AddPropertyElements extends AbstractParserRuleElementFinder {
@@ -745,6 +749,31 @@ public class ExtensionGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getRelationTypeRelationTypeParserRuleCall_7_0() { return cRelationTypeRelationTypeParserRuleCall_7_0; }
 	}
 
+	public class FilterReferenceElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "FilterReference");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cFilterReferenceKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cPropertyAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cPropertyIDTerminalRuleCall_1_0 = (RuleCall)cPropertyAssignment_1.eContents().get(0);
+		
+		////11- Filter reference: filter reference refA
+		//FilterReference:
+		//	"filter reference" property=ID;
+		public ParserRule getRule() { return rule; }
+
+		//"filter reference" property=ID
+		public Group getGroup() { return cGroup; }
+
+		//"filter reference"
+		public Keyword getFilterReferenceKeyword_0() { return cFilterReferenceKeyword_0; }
+
+		//property=ID
+		public Assignment getPropertyAssignment_1() { return cPropertyAssignment_1; }
+
+		//ID
+		public RuleCall getPropertyIDTerminalRuleCall_1_0() { return cPropertyIDTerminalRuleCall_1_0; }
+	}
+
 	public class CardinalityElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Cardinality");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
@@ -839,6 +868,7 @@ public class ExtensionGrammarAccess extends AbstractGrammarElementFinder {
 	private final AddConstraintElements pAddConstraint;
 	private final FilterConstraintElements pFilterConstraint;
 	private final AddReferenceElements pAddReference;
+	private final FilterReferenceElements pFilterReference;
 	private final CardinalityElements pCardinality;
 	private final RelationTypeElements pRelationType;
 	private final EStringElements pEString;
@@ -869,6 +899,7 @@ public class ExtensionGrammarAccess extends AbstractGrammarElementFinder {
 		this.pAddConstraint = new AddConstraintElements();
 		this.pFilterConstraint = new FilterConstraintElements();
 		this.pAddReference = new AddReferenceElements();
+		this.pFilterReference = new FilterReferenceElements();
 		this.pCardinality = new CardinalityElements();
 		this.pRelationType = new RelationTypeElements();
 		this.pEString = new EStringElements();
@@ -988,7 +1019,7 @@ public class ExtensionGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ModifyOperator:
-	//	AddProperty | AddReference | ModifyProperty | FilterProperty | AddConstraint | FilterConstraint;
+	//	AddProperty | AddReference | ModifyProperty | FilterProperty | AddConstraint | FilterConstraint | FilterReference;
 	public ModifyOperatorElements getModifyOperatorAccess() {
 		return pModifyOperator;
 	}
@@ -1083,6 +1114,17 @@ public class ExtensionGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getAddReferenceRule() {
 		return getAddReferenceAccess().getRule();
+	}
+
+	////11- Filter reference: filter reference refA
+	//FilterReference:
+	//	"filter reference" property=ID;
+	public FilterReferenceElements getFilterReferenceAccess() {
+		return pFilterReference;
+	}
+	
+	public ParserRule getFilterReferenceRule() {
+		return getFilterReferenceAccess().getRule();
 	}
 
 	//Cardinality:

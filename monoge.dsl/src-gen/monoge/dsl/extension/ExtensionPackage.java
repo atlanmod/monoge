@@ -676,6 +676,34 @@ public interface ExtensionPackage extends EPackage
    */
   int ADD_REFERENCE_FEATURE_COUNT = MODIFY_OPERATOR_FEATURE_COUNT + 5;
 
+  /**
+   * The meta object id for the '{@link monoge.dsl.extension.impl.FilterReferenceImpl <em>Filter Reference</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see monoge.dsl.extension.impl.FilterReferenceImpl
+   * @see monoge.dsl.extension.impl.ExtensionPackageImpl#getFilterReference()
+   * @generated
+   */
+  int FILTER_REFERENCE = 17;
+
+  /**
+   * The feature id for the '<em><b>Property</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FILTER_REFERENCE__PROPERTY = MODIFY_OPERATOR_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Filter Reference</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FILTER_REFERENCE_FEATURE_COUNT = MODIFY_OPERATOR_FEATURE_COUNT + 1;
+
 
   /**
    * Returns the meta object for class '{@link monoge.dsl.extension.Model <em>Model</em>}'.
@@ -1211,6 +1239,27 @@ public interface ExtensionPackage extends EPackage
   EAttribute getAddReference_RelationType();
 
   /**
+   * Returns the meta object for class '{@link monoge.dsl.extension.FilterReference <em>Filter Reference</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Filter Reference</em>'.
+   * @see monoge.dsl.extension.FilterReference
+   * @generated
+   */
+  EClass getFilterReference();
+
+  /**
+   * Returns the meta object for the attribute '{@link monoge.dsl.extension.FilterReference#getProperty <em>Property</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Property</em>'.
+   * @see monoge.dsl.extension.FilterReference#getProperty()
+   * @see #getFilterReference()
+   * @generated
+   */
+  EAttribute getFilterReference_Property();
+
+  /**
    * Returns the factory that creates the instances of the model.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1666,6 +1715,24 @@ public interface ExtensionPackage extends EPackage
      * @generated
      */
     EAttribute ADD_REFERENCE__RELATION_TYPE = eINSTANCE.getAddReference_RelationType();
+
+    /**
+     * The meta object literal for the '{@link monoge.dsl.extension.impl.FilterReferenceImpl <em>Filter Reference</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see monoge.dsl.extension.impl.FilterReferenceImpl
+     * @see monoge.dsl.extension.impl.ExtensionPackageImpl#getFilterReference()
+     * @generated
+     */
+    EClass FILTER_REFERENCE = eINSTANCE.getFilterReference();
+
+    /**
+     * The meta object literal for the '<em><b>Property</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute FILTER_REFERENCE__PROPERTY = eINSTANCE.getFilterReference_Property();
 
   }
 

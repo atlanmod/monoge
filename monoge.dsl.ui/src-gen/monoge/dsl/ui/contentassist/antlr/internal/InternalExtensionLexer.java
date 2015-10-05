@@ -20,6 +20,7 @@ public class InternalExtensionLexer extends Lexer {
     public static final int T__16=16;
     public static final int T__38=38;
     public static final int T__17=17;
+    public static final int T__39=39;
     public static final int T__18=18;
     public static final int T__11=11;
     public static final int T__33=33;
@@ -643,15 +644,36 @@ public class InternalExtensionLexer extends Lexer {
     }
     // $ANTLR end "T__38"
 
+    // $ANTLR start "T__39"
+    public final void mT__39() throws RecognitionException {
+        try {
+            int _type = T__39;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:39:7: ( 'filter reference' )
+            // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:39:9: 'filter reference'
+            {
+            match("filter reference"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__39"
+
     // $ANTLR start "RULE_ID"
     public final void mRULE_ID() throws RecognitionException {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:3692:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:3692:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:3804:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:3804:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:3692:11: ( '^' )?
+            // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:3804:11: ( '^' )?
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -660,7 +682,7 @@ public class InternalExtensionLexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:3692:11: '^'
+                    // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:3804:11: '^'
                     {
                     match('^'); 
 
@@ -678,7 +700,7 @@ public class InternalExtensionLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:3692:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:3804:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop2:
             do {
                 int alt2=2;
@@ -727,10 +749,10 @@ public class InternalExtensionLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:3694:10: ( ( '0' .. '9' )+ )
-            // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:3694:12: ( '0' .. '9' )+
+            // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:3806:10: ( ( '0' .. '9' )+ )
+            // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:3806:12: ( '0' .. '9' )+
             {
-            // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:3694:12: ( '0' .. '9' )+
+            // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:3806:12: ( '0' .. '9' )+
             int cnt3=0;
             loop3:
             do {
@@ -744,7 +766,7 @@ public class InternalExtensionLexer extends Lexer {
 
                 switch (alt3) {
             	case 1 :
-            	    // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:3694:13: '0' .. '9'
+            	    // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:3806:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -776,10 +798,10 @@ public class InternalExtensionLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:3696:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:3696:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:3808:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:3808:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:3696:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:3808:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -797,10 +819,10 @@ public class InternalExtensionLexer extends Lexer {
             }
             switch (alt6) {
                 case 1 :
-                    // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:3696:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:3808:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:3696:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:3808:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop4:
                     do {
                         int alt4=3;
@@ -816,7 +838,7 @@ public class InternalExtensionLexer extends Lexer {
 
                         switch (alt4) {
                     	case 1 :
-                    	    // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:3696:21: '\\\\' .
+                    	    // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:3808:21: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -824,7 +846,7 @@ public class InternalExtensionLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:3696:28: ~ ( ( '\\\\' | '\"' ) )
+                    	    // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:3808:28: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -849,10 +871,10 @@ public class InternalExtensionLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:3696:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:3808:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:3696:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:3808:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop5:
                     do {
                         int alt5=3;
@@ -868,7 +890,7 @@ public class InternalExtensionLexer extends Lexer {
 
                         switch (alt5) {
                     	case 1 :
-                    	    // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:3696:54: '\\\\' .
+                    	    // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:3808:54: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -876,7 +898,7 @@ public class InternalExtensionLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:3696:61: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:3808:61: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -919,12 +941,12 @@ public class InternalExtensionLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:3698:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:3698:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:3810:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:3810:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:3698:24: ( options {greedy=false; } : . )*
+            // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:3810:24: ( options {greedy=false; } : . )*
             loop7:
             do {
                 int alt7=2;
@@ -949,7 +971,7 @@ public class InternalExtensionLexer extends Lexer {
 
                 switch (alt7) {
             	case 1 :
-            	    // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:3698:52: .
+            	    // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:3810:52: .
             	    {
             	    matchAny(); 
 
@@ -979,12 +1001,12 @@ public class InternalExtensionLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:3700:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:3700:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:3812:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:3812:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:3700:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:3812:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop8:
             do {
                 int alt8=2;
@@ -997,7 +1019,7 @@ public class InternalExtensionLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:3700:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:3812:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -1017,7 +1039,7 @@ public class InternalExtensionLexer extends Lexer {
                 }
             } while (true);
 
-            // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:3700:40: ( ( '\\r' )? '\\n' )?
+            // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:3812:40: ( ( '\\r' )? '\\n' )?
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -1026,9 +1048,9 @@ public class InternalExtensionLexer extends Lexer {
             }
             switch (alt10) {
                 case 1 :
-                    // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:3700:41: ( '\\r' )? '\\n'
+                    // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:3812:41: ( '\\r' )? '\\n'
                     {
-                    // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:3700:41: ( '\\r' )?
+                    // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:3812:41: ( '\\r' )?
                     int alt9=2;
                     int LA9_0 = input.LA(1);
 
@@ -1037,7 +1059,7 @@ public class InternalExtensionLexer extends Lexer {
                     }
                     switch (alt9) {
                         case 1 :
-                            // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:3700:41: '\\r'
+                            // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:3812:41: '\\r'
                             {
                             match('\r'); 
 
@@ -1069,10 +1091,10 @@ public class InternalExtensionLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:3702:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:3702:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:3814:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:3814:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:3702:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:3814:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt11=0;
             loop11:
             do {
@@ -1126,8 +1148,8 @@ public class InternalExtensionLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:3704:16: ( . )
-            // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:3704:18: .
+            // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:3816:16: ( . )
+            // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:3816:18: .
             {
             matchAny(); 
 
@@ -1142,8 +1164,8 @@ public class InternalExtensionLexer extends Lexer {
     // $ANTLR end "RULE_ANY_OTHER"
 
     public void mTokens() throws RecognitionException {
-        // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:1:8: ( T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
-        int alt12=35;
+        // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:1:8: ( T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
+        int alt12=36;
         alt12 = dfa12.predict(input);
         switch (alt12) {
             case 1 :
@@ -1343,49 +1365,56 @@ public class InternalExtensionLexer extends Lexer {
                 }
                 break;
             case 29 :
-                // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:1:178: RULE_ID
+                // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:1:178: T__39
+                {
+                mT__39(); 
+
+                }
+                break;
+            case 30 :
+                // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:1:184: RULE_ID
                 {
                 mRULE_ID(); 
 
                 }
                 break;
-            case 30 :
-                // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:1:186: RULE_INT
+            case 31 :
+                // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:1:192: RULE_INT
                 {
                 mRULE_INT(); 
 
                 }
                 break;
-            case 31 :
-                // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:1:195: RULE_STRING
+            case 32 :
+                // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:1:201: RULE_STRING
                 {
                 mRULE_STRING(); 
 
                 }
                 break;
-            case 32 :
-                // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:1:207: RULE_ML_COMMENT
+            case 33 :
+                // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:1:213: RULE_ML_COMMENT
                 {
                 mRULE_ML_COMMENT(); 
 
                 }
                 break;
-            case 33 :
-                // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:1:223: RULE_SL_COMMENT
+            case 34 :
+                // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:1:229: RULE_SL_COMMENT
                 {
                 mRULE_SL_COMMENT(); 
 
                 }
                 break;
-            case 34 :
-                // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:1:239: RULE_WS
+            case 35 :
+                // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:1:245: RULE_WS
                 {
                 mRULE_WS(); 
 
                 }
                 break;
-            case 35 :
-                // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:1:247: RULE_ANY_OTHER
+            case 36 :
+                // ../monoge.dsl.ui/src-gen/monoge/dsl/ui/contentassist/antlr/internal/InternalExtension.g:1:253: RULE_ANY_OTHER
                 {
                 mRULE_ANY_OTHER(); 
 
@@ -1403,10 +1432,10 @@ public class InternalExtensionLexer extends Lexer {
         "\1\31\2\uffff\3\31\7\uffff\1\40\1\uffff\4\40\4\uffff\2\40\1\uffff"+
         "\2\40\1\uffff\1\40\6\uffff\12\40\4\uffff\2\40\1\uffff\5\40\1\130"+
         "\3\40\3\uffff\5\40\1\uffff\3\40\2\uffff\1\146\7\40\1\uffff\3\40"+
-        "\2\uffff\5\40\4\uffff\2\40\1\176\2\40\2\uffff\2\40\1\uffff\2\40"+
-        "\1\u0085\1\u0086\1\40\1\u0088\2\uffff\1\u0089\2\uffff";
+        "\2\uffff\5\40\5\uffff\2\40\1\177\2\40\2\uffff\2\40\1\uffff\2\40"+
+        "\1\u0086\1\u0087\1\40\1\u0089\2\uffff\1\u008a\2\uffff";
     static final String DFA12_eofS =
-        "\u008a\uffff";
+        "\u008b\uffff";
     static final String DFA12_minS =
         "\1\0\3\56\1\157\1\144\1\145\1\170\4\uffff\1\160\1\uffff\1\157\1"+
         "\171\1\uffff\1\151\1\101\2\uffff\2\0\1\52\2\uffff\1\56\3\uffff\1"+
@@ -1416,8 +1445,9 @@ public class InternalExtensionLexer extends Lexer {
         "\1\151\1\162\1\146\1\60\1\145\1\163\1\151\1\154\2\uffff\1\145\1"+
         "\144\1\141\1\164\1\171\1\uffff\1\162\1\151\1\141\2\uffff\1\60\1"+
         "\151\1\154\1\171\2\40\2\164\1\uffff\1\156\1\151\1\160\2\143\2\151"+
-        "\1\147\1\172\1\151\3\uffff\1\154\2\157\1\60\1\151\1\156\2\uffff"+
-        "\2\156\1\uffff\1\156\1\147\2\60\1\147\1\60\2\uffff\1\60\2\uffff";
+        "\1\147\1\172\1\151\3\uffff\1\154\1\uffff\2\157\1\60\1\151\1\156"+
+        "\2\uffff\2\156\1\uffff\1\156\1\147\2\60\1\147\1\60\2\uffff\1\60"+
+        "\2\uffff";
     static final String DFA12_maxS =
         "\1\uffff\3\56\1\157\1\163\1\145\1\170\4\uffff\1\165\1\uffff\1\157"+
         "\1\171\1\uffff\1\151\1\172\2\uffff\2\uffff\1\57\2\uffff\1\56\3\uffff"+
@@ -1426,18 +1456,20 @@ public class InternalExtensionLexer extends Lexer {
         "\1\151\1\145\1\143\1\145\1\151\1\145\1\164\4\uffff\1\157\1\143\1"+
         "\162\2\156\1\151\1\162\1\146\1\172\1\145\1\163\1\151\1\157\2\uffff"+
         "\1\145\1\144\1\141\1\164\1\171\1\uffff\1\162\1\151\1\141\2\uffff"+
-        "\1\172\1\151\1\154\1\171\2\40\2\164\1\uffff\1\156\1\151\3\160\2"+
-        "\151\1\147\1\172\1\151\3\uffff\3\157\1\172\1\151\1\156\2\uffff\2"+
-        "\156\1\uffff\1\156\1\147\2\172\1\147\1\172\2\uffff\1\172\2\uffff";
+        "\1\172\1\151\1\154\1\171\2\40\2\164\1\uffff\1\156\1\151\2\160\1"+
+        "\162\2\151\1\147\1\172\1\151\3\uffff\1\157\1\uffff\2\157\1\172\1"+
+        "\151\1\156\2\uffff\2\156\1\uffff\1\156\1\147\2\172\1\147\1\172\2"+
+        "\uffff\1\172\2\uffff";
     static final String DFA12_acceptS =
         "\10\uffff\1\13\1\14\1\15\1\16\1\uffff\1\21\2\uffff\1\27\2\uffff"+
-        "\1\35\1\36\3\uffff\1\42\1\43\1\uffff\1\6\1\2\1\36\2\uffff\1\35\4"+
-        "\uffff\1\13\1\14\1\15\1\16\2\uffff\1\21\2\uffff\1\27\1\uffff\1\37"+
-        "\1\40\1\41\1\42\14\uffff\1\1\1\5\1\3\1\4\15\uffff\1\24\1\34\5\uffff"+
-        "\1\25\3\uffff\1\17\1\32\10\uffff\1\11\12\uffff\1\23\1\26\1\30\6"+
-        "\uffff\1\31\1\33\2\uffff\1\12\6\uffff\1\7\1\10\1\uffff\1\22\1\20";
+        "\1\36\1\37\3\uffff\1\43\1\44\1\uffff\1\6\1\2\1\37\2\uffff\1\36\4"+
+        "\uffff\1\13\1\14\1\15\1\16\2\uffff\1\21\2\uffff\1\27\1\uffff\1\40"+
+        "\1\41\1\42\1\43\14\uffff\1\1\1\5\1\3\1\4\15\uffff\1\24\1\34\5\uffff"+
+        "\1\25\3\uffff\1\17\1\32\10\uffff\1\11\12\uffff\1\23\1\26\1\30\1"+
+        "\uffff\1\35\5\uffff\1\31\1\33\2\uffff\1\12\6\uffff\1\7\1\10\1\uffff"+
+        "\1\22\1\20";
     static final String DFA12_specialS =
-        "\1\2\24\uffff\1\1\1\0\163\uffff}>";
+        "\1\2\24\uffff\1\1\1\0\164\uffff}>";
     static final String[] DFA12_transitionS = {
             "\11\31\2\30\2\31\1\30\22\31\1\30\1\31\1\25\4\31\1\26\2\31\1"+
             "\1\1\31\1\13\1\31\1\15\1\27\1\2\1\3\10\24\1\10\2\31\1\20\3\31"+
@@ -1549,31 +1581,32 @@ public class InternalExtensionLexer extends Lexer {
             "\1\157",
             "\1\160",
             "\1\161\14\uffff\1\162",
-            "\1\164\14\uffff\1\163",
-            "\1\165",
+            "\1\164\14\uffff\1\163\1\uffff\1\165",
             "\1\166",
             "\1\167",
             "\1\170",
             "\1\171",
+            "\1\172",
             "",
             "",
             "",
-            "\1\172\2\uffff\1\173",
-            "\1\174",
+            "\1\173\2\uffff\1\174",
+            "",
             "\1\175",
+            "\1\176",
             "\12\40\7\uffff\32\40\4\uffff\1\40\1\uffff\32\40",
-            "\1\177",
             "\1\u0080",
-            "",
-            "",
             "\1\u0081",
-            "\1\u0082",
             "",
+            "",
+            "\1\u0082",
             "\1\u0083",
+            "",
             "\1\u0084",
+            "\1\u0085",
             "\12\40\7\uffff\32\40\4\uffff\1\40\1\uffff\32\40",
             "\12\40\7\uffff\32\40\4\uffff\1\40\1\uffff\32\40",
-            "\1\u0087",
+            "\1\u0088",
             "\12\40\7\uffff\32\40\4\uffff\1\40\1\uffff\32\40",
             "",
             "",
@@ -1612,7 +1645,7 @@ public class InternalExtensionLexer extends Lexer {
             this.transition = DFA12_transition;
         }
         public String getDescription() {
-            return "1:1: Tokens : ( T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );";
+            return "1:1: Tokens : ( T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             IntStream input = _input;

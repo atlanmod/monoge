@@ -160,6 +160,11 @@ public class ExtensionAdapterFactory extends AdapterFactoryImpl
         return createAddReferenceAdapter();
       }
       @Override
+      public Adapter caseFilterReference(FilterReference object)
+      {
+        return createFilterReferenceAdapter();
+      }
+      @Override
       public Adapter defaultCase(EObject object)
       {
         return createEObjectAdapter();
@@ -432,6 +437,21 @@ public class ExtensionAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createAddReferenceAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link monoge.dsl.extension.FilterReference <em>Filter Reference</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see monoge.dsl.extension.FilterReference
+   * @generated
+   */
+  public Adapter createFilterReferenceAdapter()
   {
     return null;
   }

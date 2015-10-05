@@ -58,6 +58,7 @@ public class ExtensionParser extends AbstractContentAssistParser {
 					put(grammarAccess.getAddConstraintAccess().getGroup(), "rule__AddConstraint__Group__0");
 					put(grammarAccess.getFilterConstraintAccess().getGroup(), "rule__FilterConstraint__Group__0");
 					put(grammarAccess.getAddReferenceAccess().getGroup(), "rule__AddReference__Group__0");
+					put(grammarAccess.getFilterReferenceAccess().getGroup(), "rule__FilterReference__Group__0");
 					put(grammarAccess.getModelAccess().getExtensionNameAssignment_1(), "rule__Model__ExtensionNameAssignment_1");
 					put(grammarAccess.getModelAccess().getMetamodelAssignment_3(), "rule__Model__MetamodelAssignment_3");
 					put(grammarAccess.getModelAccess().getPrefixAssignment_5(), "rule__Model__PrefixAssignment_5");
@@ -96,6 +97,7 @@ public class ExtensionParser extends AbstractContentAssistParser {
 					put(grammarAccess.getAddReferenceAccess().getClassAssignment_5(), "rule__AddReference__ClassAssignment_5");
 					put(grammarAccess.getAddReferenceAccess().getCardinalityAssignment_6(), "rule__AddReference__CardinalityAssignment_6");
 					put(grammarAccess.getAddReferenceAccess().getRelationTypeAssignment_7(), "rule__AddReference__RelationTypeAssignment_7");
+					put(grammarAccess.getFilterReferenceAccess().getPropertyAssignment_1(), "rule__FilterReference__PropertyAssignment_1");
 				}
 			};
 		}

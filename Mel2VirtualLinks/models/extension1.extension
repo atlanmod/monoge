@@ -13,6 +13,7 @@ define extension1 extending UML:uml, BPMN:bpmn{
 	}
 	modify class uml.B{
 		filter property propertyB
+		filter reference refA
 	} 
 	filter class uml.D
 }

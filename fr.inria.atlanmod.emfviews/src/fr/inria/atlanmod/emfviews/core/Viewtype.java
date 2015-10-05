@@ -605,6 +605,7 @@ public class Viewtype extends ResourceImpl {
 				String sourceElement = association.getSourceElement().getName();
 				EClass classB = (EClass)extendedPackage.getEClassifier(sourceElement); //B
 				//System.out.println("Filter property: "+ filteredProperty + " from class: " + sourceElement);
+				System.out.println("Filter property structuralFeatures size: "+ classB.getEStructuralFeatures().size());
 				for(int i=0; i<classB.getEStructuralFeatures().size(); i++){
 					if(classB.getEStructuralFeatures().get(i).getName().compareTo(filteredProperty)==0){
 						System.out.println("Filter property ");
@@ -665,7 +666,7 @@ public class Viewtype extends ResourceImpl {
 						
 					}
 				}
-				//9- AddReference: refB to A
+			//9- AddReference: refB to A
 			}else if(associationName.compareTo("AddReference") == 0){
 				System.out.println(association.getTargetAttribute());
 				String addedProperty = association.getTargetAttribute().split(";")[0]; //refB
@@ -688,6 +689,20 @@ public class Viewtype extends ResourceImpl {
 				refB.setUpperBound(association.getUpperBound());
 				
 				classA.getEStructuralFeatures().add(refB);
+			//10- FilterReference: reference refA of class B
+			}else if(associationName.compareTo("FilterReference") == 0){
+				String filteredReference = association.getSourceAttribute();
+				String sourceElement = association.getSourceElement().getName();
+				EClass classB = (EClass)extendedPackage.getEClassifier(sourceElement); //B
+				//System.out.println("Filter property: "+ filteredProperty + " from class: " + sourceElement);
+				System.out.println("Filter reference structuralFeatures size: "+ classB.getEStructuralFeatures().size());
+				for(int i=0; i<classB.getEStructuralFeatures().size(); i++){
+					if(classB.getEStructuralFeatures().get(i).getName().compareTo(filteredReference)==0){
+						System.out.println("Filter reference ");
+						EStructuralFeature theRef = classB.getEAllStructuralFeatures().get(i);
+						classB.getEStructuralFeatures().remove(theRef);
+					}
+				}
 			}else{
 				System.out.println("Not recognized Association");
 			}

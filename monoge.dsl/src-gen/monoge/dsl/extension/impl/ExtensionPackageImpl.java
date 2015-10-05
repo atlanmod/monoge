@@ -12,6 +12,7 @@ import monoge.dsl.extension.ExtensionPackage;
 import monoge.dsl.extension.FilterClass;
 import monoge.dsl.extension.FilterConstraint;
 import monoge.dsl.extension.FilterProperty;
+import monoge.dsl.extension.FilterReference;
 import monoge.dsl.extension.Generalize;
 import monoge.dsl.extension.Metamodel;
 import monoge.dsl.extension.Model;
@@ -155,6 +156,13 @@ public class ExtensionPackageImpl extends EPackageImpl implements ExtensionPacka
    * @generated
    */
   private EClass addReferenceEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass filterReferenceEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -724,6 +732,26 @@ public class ExtensionPackageImpl extends EPackageImpl implements ExtensionPacka
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getFilterReference()
+  {
+    return filterReferenceEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getFilterReference_Property()
+  {
+    return (EAttribute)filterReferenceEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public ExtensionFactory getExtensionFactory()
   {
     return (ExtensionFactory)getEFactoryInstance();
@@ -815,6 +843,9 @@ public class ExtensionPackageImpl extends EPackageImpl implements ExtensionPacka
     createEAttribute(addReferenceEClass, ADD_REFERENCE__CLASS);
     createEAttribute(addReferenceEClass, ADD_REFERENCE__CARDINALITY);
     createEAttribute(addReferenceEClass, ADD_REFERENCE__RELATION_TYPE);
+
+    filterReferenceEClass = createEClass(FILTER_REFERENCE);
+    createEAttribute(filterReferenceEClass, FILTER_REFERENCE__PROPERTY);
   }
 
   /**
@@ -857,6 +888,7 @@ public class ExtensionPackageImpl extends EPackageImpl implements ExtensionPacka
     addConstraintEClass.getESuperTypes().add(this.getModifyOperator());
     filterConstraintEClass.getESuperTypes().add(this.getModifyOperator());
     addReferenceEClass.getESuperTypes().add(this.getModifyOperator());
+    filterReferenceEClass.getESuperTypes().add(this.getModifyOperator());
 
     // Initialize classes and features; add operations and parameters
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -925,6 +957,9 @@ public class ExtensionPackageImpl extends EPackageImpl implements ExtensionPacka
     initEAttribute(getAddReference_Class(), ecorePackage.getEString(), "class", null, 0, -1, AddReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getAddReference_Cardinality(), ecorePackage.getEString(), "cardinality", null, 0, -1, AddReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getAddReference_RelationType(), ecorePackage.getEString(), "relationType", null, 0, -1, AddReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(filterReferenceEClass, FilterReference.class, "FilterReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getFilterReference_Property(), ecorePackage.getEString(), "property", null, 0, 1, FilterReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);
