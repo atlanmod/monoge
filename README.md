@@ -1,3 +1,5 @@
+**Note: This repository has been superseded by [EMF Views](https://github.com/atlanmod/emfviews).**
+
 MoNoGe
 ======
 
